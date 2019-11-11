@@ -3,5 +3,7 @@
     android:shape="rectangle">
     <solid android:color="@color/login_card_input" />
     <corners android:radius="8dp" />
-    <size android:width="300dp" android:height="250dp"/>
+    <size
+        android:width="300dp"
+        android:height="250dp" />
 </shape>

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_color_gradient"
-    tools:context=".MainActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
 
     <View
         android:id="@+id/logo"
@@ -36,13 +36,13 @@
         android:layout_width="@dimen/login_register_button_size"
         android:layout_height="@dimen/login_register_button_size"
         android:background="@drawable/login_register_button"
+        android:src="@drawable/ic_add_plus_button"
         app:layout_constraintBottom_toTopOf="@id/input_card"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="@+id/input_card"
         app:layout_constraintRight_toRightOf="@id/input_card"
         app:layout_constraintStart_toEndOf="@+id/input_card"
-        app:layout_constraintTop_toTopOf="@id/input_card"
-        android:src="@drawable/ic_add_plus_button"/>
+        app:layout_constraintTop_toTopOf="@id/input_card" />
 
     <TextView
         android:id="@+id/login_text"
@@ -61,10 +61,10 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="@string/login_email"
         android:textColor="@color/login_text"
         android:textSize="16sp"
-        android:layout_marginStart="10dp"
         app:layout_constraintLeft_toLeftOf="@id/input_card"
         app:layout_constraintTop_toBottomOf="@id/login_text" />
 
@@ -72,25 +72,25 @@
         android:id="@+id/email_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/login_email"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         app:layout_constraintLeft_toLeftOf="@id/input_card"
         app:layout_constraintRight_toRightOf="@id/input_card"
-        app:layout_constraintTop_toBottomOf="@id/email"/>
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
     <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/login_password"
         android:textColor="@color/login_text"
         android:textSize="16sp"
-        android:layout_marginStart="10dp"
         app:layout_constraintLeft_toLeftOf="@id/input_card"
         app:layout_constraintTop_toBottomOf="@id/email_input" />
 
@@ -98,12 +98,12 @@
         android:id="@+id/password_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/login_password"
         android:inputType="textPassword"
         android:textSize="16sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         app:layout_constraintLeft_toLeftOf="@id/input_card"
         app:layout_constraintRight_toRightOf="@id/input_card"
         app:layout_constraintTop_toBottomOf="@id/password" />
@@ -114,25 +114,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="@drawable/login_google_button"
+        android:contentDescription="@string/login_loginText"
         android:src="@drawable/login_google"
         app:layout_constraintBottom_toBottomOf="@id/input_card"
         app:layout_constraintLeft_toLeftOf="@id/input_card"
         app:layout_constraintRight_toLeftOf="@id/login_button"
-        app:layout_constraintTop_toBottomOf="@id/input_card"
-        android:contentDescription="@string/login_loginText"/>
+        app:layout_constraintTop_toBottomOf="@id/input_card" />
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/login_button"
         android:fontFamily="sans-serif"
         android:text="@string/login_loginText"
         android:textAlignment="center"
-        android:textSize="16sp"
         android:textColor="@color/login_text"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/input_card"
         app:layout_constraintLeft_toRightOf="@id/google"
         app:layout_constraintRight_toRightOf="@id/input_card"
