@@ -4,4 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    android:background="@drawable/gradient_color_login"
+    tools:context=".MainActivity">
+
+    <View
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="75dp"
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/input_card"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/login_logo"
+        />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintRight_toRightOf="@id/input_card"
+        app:layout_constraintBottom_toTopOf="@id/input_card"
+        android:background="@drawable/login_register_button"
+        app:layout_constraintLeft_toLeftOf="@id/input_card"
+        app:layout_constraintTop_toTopOf="@id/input_card"
+        />
+
+    <FrameLayout
+        android:id="@+id/input_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/forgotPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/login_card_input"
+        />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Login"
+        app:layout_constraintBottom_toBottomOf="@id/forgotPassword"
+        app:layout_constraintLeft_toLeftOf="@id/google"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/forgotPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/login"
+        tools:text="G" />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_forgot_password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
+        android:layout_marginBottom="50dp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
