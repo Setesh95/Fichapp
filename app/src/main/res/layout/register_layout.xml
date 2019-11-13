@@ -8,8 +8,8 @@
 
     <View
         android:id="@+id/logo"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="@dimen/logo_size"
+        android:layout_height="@dimen/logo_size"
         android:background="@drawable/login_logo"
         app:layout_constraintBottom_toTopOf="@id/register_card"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:hint="@string/password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:maxLines="1"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
