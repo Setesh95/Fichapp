@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Login Page -->
     <dimen name="login_logo_size">90dp</dimen>
     <dimen name="login_logo_margin">40dp</dimen>
     <dimen name="login_register_button_size">50dp</dimen>
+    <!--Register Page -->
+    <dimen name="register_input">10dp</dimen>
 </resources>
