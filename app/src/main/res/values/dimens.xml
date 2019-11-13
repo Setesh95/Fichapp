@@ -8,4 +8,5 @@
     <dimen name="register_input">10dp</dimen>
     <dimen name="register_text_input">16sp</dimen>
     <dimen name="register_hint_text">12sp</dimen>
+    <dimen name="register_margin_top">30dp</dimen>
 </resources>
