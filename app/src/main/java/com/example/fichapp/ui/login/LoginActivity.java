@@ -1,4 +1,4 @@
-package com.example.fichapp;
+package com.example.fichapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.fichapp.R;
 
 public class LoginActivity extends AppCompatActivity {
 

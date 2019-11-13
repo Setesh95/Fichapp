@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_color_gradient"
     android:fitsSystemWindows="true"
-    tools:context=".LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <View
         android:id="@+id/logo"
@@ -24,23 +24,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/login_card_input"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/forgotPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@id/logo">
 
 
         <TextView
             android:id="@+id/login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:text="@string/login_loginText"
             android:textColor="@color/white"
             android:textColorHint="#00FFFDFD"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -91,14 +91,14 @@
         android:layout_width="@dimen/login_register_button_size"
         android:layout_height="@dimen/login_register_button_size"
         android:background="@drawable/login_register_button"
+        android:contentDescription="@string/register_title"
         android:src="@drawable/ic_add_plus_button"
         app:layout_constraintBottom_toTopOf="@id/input_card"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="@+id/input_card"
         app:layout_constraintRight_toRightOf="@id/input_card"
         app:layout_constraintStart_toEndOf="@+id/input_card"
-        app:layout_constraintTop_toTopOf="@id/input_card"
-        android:contentDescription="@string/register_title"/>
+        app:layout_constraintTop_toTopOf="@id/input_card" />
 
     <ImageButton
         android:id="@+id/google"
@@ -142,5 +142,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google"/>
+        app:layout_constraintTop_toBottomOf="@+id/google" />
 </androidx.constraintlayout.widget.ConstraintLayout>

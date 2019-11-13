@@ -1,8 +1,10 @@
-package com.example.fichapp;
+package com.example.fichapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.fichapp.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
