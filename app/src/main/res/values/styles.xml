@@ -10,4 +10,9 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="HintThemme" parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/register_hint_text</item>
+    </style>
+
 </resources>

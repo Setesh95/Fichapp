@@ -4,6 +4,6 @@
     <solid android:color="@color/register_color_card_input" />
     <corners android:radius="8dp" />
     <size
-        android:width="300dp"
-        android:height="250dp" />
+        android:width="320dp"
+        android:height="380dp" />
 </shape>

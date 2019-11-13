@@ -36,97 +36,95 @@
             android:layout_marginTop="10dp"
             android:text="@string/register_title"
             android:textColor="@color/white"
-            android:textColorHint="#00FFFDFD"
+            android:textColorHint="@color/white"
             android:textSize="16sp"
             android:textAllCaps="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textAllCaps="true"
-            android:text="@string/register_company"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_company"
+            android:layout_height="match_parent"
             android:textColorHint="@color/white_opacity_30"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/white"
+            android:layout_marginStart="@dimen/register_input"
+            android:layout_marginTop="@dimen/register_input"
+            android:layout_marginEnd="@dimen/register_input"
+            app:hintTextAppearance="@style/HintThemme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_company"
+                android:maxLines="1"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/white"
+                android:textSize="@dimen/register_text_input" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/white_opacity_30"
+            android:layout_marginStart="@dimen/register_input"
+            android:layout_marginTop="@dimen/register_input"
+            android:layout_marginEnd="@dimen/register_input"
+            app:hintTextAppearance="@style/HintThemme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/white"
+                android:textSize="@dimen/register_text_input" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/white_opacity_30"
+            android:layout_marginStart="@dimen/register_input"
+            android:layout_marginTop="@dimen/register_input"
+            android:layout_marginEnd="@dimen/register_input"
+            app:hintTextAppearance="@style/HintThemme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:maxLines="1"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/white"
+                android:textSize="@dimen/register_text_input"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/white_opacity_30"
             android:layout_marginStart="@dimen/register_input"
             android:layout_marginEnd="@dimen/register_input"
-            android:textSize="12sp"/>
+            android:layout_marginTop="@dimen/register_input"
+            app:hintTextAppearance="@style/HintThemme">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/email"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_repeatPassword"
+                android:maxLines="1"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/white"
+                android:textSize="@dimen/register_text_input"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:hint="@string/email"
-            android:textColorHint="@color/white_opacity_30"
-            android:textColor="@color/white"
-            android:inputType="textEmailAddress"
-            android:layout_marginStart="@dimen/register_input"
-            android:layout_marginEnd="@dimen/register_input"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/password"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:textColorHint="@color/white_opacity_30"
-            android:textColor="@color/white"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@color/white"
-            android:layout_marginStart="@dimen/register_input"
-            android:layout_marginEnd="@dimen/register_input"
-            android:textSize="12sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/register_repeatPassword"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_repeatPassword"
-            android:textColorHint="@color/white_opacity_30"
-            android:textColor="@color/white"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@color/white"
-            android:layout_marginStart="@dimen/register_input"
-            android:layout_marginEnd="@dimen/register_input"
-            android:textSize="12sp"
-            android:layout_marginBottom="35dp"/>
 
     </LinearLayout>
 
@@ -147,7 +145,7 @@
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/register_button"
         android:fontFamily="sans-serif"

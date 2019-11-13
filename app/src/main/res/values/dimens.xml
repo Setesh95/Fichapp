@@ -6,4 +6,6 @@
     <dimen name="login_register_button_size">50dp</dimen>
     <!--Register Page -->
     <dimen name="register_input">10dp</dimen>
+    <dimen name="register_text_input">16sp</dimen>
+    <dimen name="register_hint_text">12sp</dimen>
 </resources>
