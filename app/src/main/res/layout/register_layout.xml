@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:hint="@string/register_repeatPassword"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:maxLines="1"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
