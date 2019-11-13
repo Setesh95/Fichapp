@@ -2,10 +2,13 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#c33764</color>
     <!--Login Colors-->
-    <color name="login_color_register_button">#c33764</color>
-    <color name="login_logo">#4Dffffff</color>
-    <color name="login_card_input">#4Dffffff</color>
-    <color name="login_text">#ffffff</color>
+    <color name="pink_acent">#c33764</color>
+    <color name="white_opacity_30">#4Dffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="login_button">#413f54</color>
+
+    <!--Register Colors -->
+    <color name="register_color_card_input">#413f54</color>
 </resources>
