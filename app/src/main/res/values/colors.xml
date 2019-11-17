@@ -10,5 +10,5 @@
     <color name="login_button">#413f54</color>
 
     <!--Register Colors -->
-    <color name="register_color_card_input">#413f54</color>
+    <color name="register_color_card_input">#4D413f54</color>
 </resources>

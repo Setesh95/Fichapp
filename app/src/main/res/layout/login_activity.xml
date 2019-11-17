@@ -18,6 +18,20 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:elevation="5dp"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@id/input_card"
+        app:layout_constraintEnd_toEndOf="@+id/input_card"
+        app:layout_constraintRight_toRightOf="@id/input_card"
+        app:layout_constraintStart_toEndOf="@+id/input_card"
+        app:layout_constraintTop_toTopOf="@id/input_card"
+        app:srcCompat="@drawable/ic_add_plus_button" />
+
 
     <LinearLayout
         android:id="@+id/input_card"
@@ -87,24 +101,10 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/register"
-        android:layout_width="@dimen/login_register_button_size"
-        android:layout_height="@dimen/login_register_button_size"
-        android:background="@drawable/login_register_button"
-        android:contentDescription="@string/register_title"
-        android:src="@drawable/ic_add_plus_button"
-        app:layout_constraintBottom_toTopOf="@id/input_card"
-        app:layout_constraintDimensionRatio="W,1:1"
-        app:layout_constraintEnd_toEndOf="@+id/input_card"
-        app:layout_constraintRight_toRightOf="@id/input_card"
-        app:layout_constraintStart_toEndOf="@+id/input_card"
-        app:layout_constraintTop_toTopOf="@id/input_card" />
-
-    <ImageButton
         android:id="@+id/google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="6dp"
         android:background="@drawable/login_google_button"
         android:contentDescription="@string/login_loginText"
         android:src="@drawable/login_google"
@@ -143,4 +143,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/google" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
