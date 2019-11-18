@@ -7,10 +7,9 @@ import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
 
-    private final MutableLiveData<LoginModel> loginModel = new MutableLiveData<>();
+    private final MutableLiveData<UserModel> userModel = new MutableLiveData<>();
 
-    public void loginButtonAction(String email, String password){
-        Log.i("Email", email);
-        Log.i("Pas", password);
+    void loginButtonAction(String email, String password){
+
     }
 }
