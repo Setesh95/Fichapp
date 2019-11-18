@@ -1,16 +1,16 @@
 package com.example.fichapp.ui.login;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
-    public final MutableLiveData<Boolean> registerButton = new MutableLiveData<>();
 
-    public LoginViewModel(){
-        registerButton.setValue(true);
-    }
+    private final MutableLiveData<LoginModel> loginModel = new MutableLiveData<>();
 
-    public void registerAction (){
-        registerButton.setValue(false);
+    public void loginButtonAction(String email, String password){
+        Log.i("Email", email);
+        Log.i("Pas", password);
     }
 }

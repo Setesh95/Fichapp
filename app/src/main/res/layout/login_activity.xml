@@ -33,7 +33,6 @@
             android:clickable="true"
             android:elevation="5dp"
             android:focusable="true"
-            android:enabled="@{LoginViewModel.registerButton}"
             app:layout_constraintBottom_toTopOf="@id/input_card"
             app:layout_constraintEnd_toEndOf="@+id/input_card"
             app:layout_constraintRight_toRightOf="@id/input_card"
@@ -75,6 +74,7 @@
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
@@ -96,6 +96,7 @@
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
@@ -134,7 +135,6 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:onClick="@{() -> LoginViewModel.registerAction()}"
             app:layout_constraintBottom_toBottomOf="@id/input_card"
             app:layout_constraintLeft_toRightOf="@id/google"
             app:layout_constraintRight_toRightOf="@id/input_card"
