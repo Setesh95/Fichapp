@@ -7,12 +7,22 @@ public class UserModel extends Serialization {
     private String password;
     private String name;
     private String lastName;
+    private String company;
     private int age;
+
     private enum  ROLE { ADMIN, USER};
 
     public UserModel(String email, String password){
         this.email = email;
         this.password = password;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getEmail() {

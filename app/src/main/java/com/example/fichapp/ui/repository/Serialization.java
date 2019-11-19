@@ -16,17 +16,22 @@ public class Serialization {
     private ArrayList<UserModel> userArray = new ArrayList<>();
 
     public boolean addUser(UserModel userModel){
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(users));
-            
-            oos.close();
-            return true;
-        } catch (IOException e){
+        if(fetchUsers()) {
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(users));
+                userArray.add(userModel);
+                oos.writeObject(userArray);
+                oos.close();
+                return true;
+            } catch (IOException e) {
+                return false;
+            }
+        } else {
             return false;
         }
     }
 
-    public boolean fetchUsers(){
+    private boolean fetchUsers(){
         try{
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(users));
             if(ois.readObject() != null) {
