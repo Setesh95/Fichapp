@@ -1,4 +1,4 @@
-package com.example.fichapp.ui.login;
+package com.example.fichapp.ui.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
