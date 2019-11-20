@@ -1,8 +1,8 @@
 package com.example.fichapp.ui.login;
 
-import com.example.fichapp.ui.repository.Serialization;
+import java.io.Serializable;
 
-public class UserModel extends Serialization {
+public class UserModel implements Serializable {
     private String email;
     private String password;
     private String name;

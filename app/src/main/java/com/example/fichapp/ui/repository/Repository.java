@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.security.auth.callback.Callback;
 
-public class Serialization {
+public class Repository {
     private File users = new File(Constants.FILE_NAME);
     private ArrayList<UserModel> userArray = new ArrayList<>();
 
