@@ -1,13 +1,19 @@
 package com.example.fichapp.ui.login;
 
-import androidx.lifecycle.MutableLiveData;
+import android.content.Context;
+
+import com.example.fichapp.ui.repository.Repository;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
+    private Repository repository;
 
-    private final MutableLiveData<UserModel> userModel = new MutableLiveData<>();
+    LoginViewModel(Context context){
+        repository = Repository.get();
+        repository.setContext(context);
+    }
 
     void loginButtonAction(String email, String password){
-
+        repository.addUser(new UserModel(email,password));
     }
 }

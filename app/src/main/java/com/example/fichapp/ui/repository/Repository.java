@@ -1,46 +1,101 @@
 package com.example.fichapp.ui.repository;
 
+import android.content.Context;
+import android.util.Log;
+
 import com.example.fichapp.ui.login.UserModel;
+
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.security.auth.callback.Callback;
 
 public class Repository {
-    private File users = new File(Constants.FILE_NAME);
-    private ArrayList<UserModel> userArray = new ArrayList<>();
+    private static Repository repository = null;
+    private Context context;
+    private ArrayList<UserModel> userList = new ArrayList<>();
 
-    public boolean addUser(UserModel userModel){
-        if(fetchUsers()) {
+    private Repository() {
+
+    }
+
+    public static Repository get() {
+        if (repository == null) {
+            return repository = getSync();
+        } else {
+            return repository;
+        }
+    }
+
+    private static synchronized Repository getSync() {
+        if (repository == null) repository = new Repository();
+        return repository;
+    }
+
+    public void setContext(Context context) {
+        this.context = context.getApplicationContext();
+    }
+
+    public void addUser(UserModel userModel) {
+        if(fileExist()) {
+            if (fetchUsers()) {
+                try {
+                    FileOutputStream fos = context.openFileOutput("users", Context.MODE_PRIVATE);
+                    ObjectOutputStream os = new ObjectOutputStream(fos);
+                    userList.add(userModel);
+                    os.writeObject(userList);
+                    os.close();
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private boolean fileExist(){
+        try{
+            FileInputStream fis = context.openFileInput("users");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis.close();
+            ois.close();
+            return true;
+        } catch (IOException e) {
             try {
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(users));
-                userArray.add(userModel);
-                oos.writeObject(userArray);
-                oos.close();
+                FileOutputStream fos = context.openFileOutput("users", Context.MODE_PRIVATE);
+                ObjectOutputStream os = new ObjectOutputStream(fos);
+                fos.close();
+                os.close();
                 return true;
-            } catch (IOException e) {
+            } catch (IOException er) {
                 return false;
             }
-        } else {
-            return false;
         }
     }
 
     private boolean fetchUsers(){
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(users));
-            if(ois.readObject() != null) {
-                userArray.addAll((ArrayList<UserModel>) ois.readObject());
+            FileInputStream fis = context.openFileInput("users");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            if(ois.available() != 0) {
+                for (UserModel user : (ArrayList<UserModel>) ois.readObject()) {
+                    if (user != null) {
+                        userList.add(user);
+                    }
+                }
             }
             ois.close();
+            fis.close();
             return true;
-        }
-        catch (IOException | ClassNotFoundException e){
+        } catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
             return false;
         }
     }
