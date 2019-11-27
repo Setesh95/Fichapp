@@ -1,8 +1,8 @@
-package com.example.fichapp.ui.repository;
+package data.repository;
 
 import android.content.Context;
 
-import com.example.fichapp.ui.login.UserModel;
+import com.example.fichapp.ui.model.UserModel;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

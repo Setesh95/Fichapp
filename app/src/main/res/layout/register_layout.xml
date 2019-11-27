@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.fichapp.ui.register.RegisterViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,8 +43,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/register_title"
                 android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/primaryColor"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -47,18 +52,19 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/white_opacity_30"
+                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/primaryColor"
                     android:hint="@string/register_company"
                     android:inputType="text"
                     android:maxLines="1"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/primaryColor"
                     android:textSize="@dimen/register_text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,18 +74,19 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/white_opacity_30"
+                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/primaryColor"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/primaryColor"
                     android:textSize="@dimen/register_text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,18 +96,19 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/white_opacity_30"
+                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/primaryColor"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/primaryColor"
                     android:textSize="@dimen/register_text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,18 +119,19 @@
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
                 android:layout_marginBottom="50dp"
-                android:textColorHint="@color/white_opacity_30"
+                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/checkPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/primaryColor"
                     android:hint="@string/register_repeatPassword"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/primaryColor"
                     android:textSize="@dimen/register_text_input" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -141,11 +150,11 @@
             android:src="@drawable/login_google"
             app:layout_constraintBottom_toBottomOf="@id/register_card"
             app:layout_constraintLeft_toLeftOf="@id/register_card"
-            app:layout_constraintRight_toLeftOf="@id/login_button"
+            app:layout_constraintRight_toLeftOf="@id/register_button"
             app:layout_constraintTop_toBottomOf="@id/register_card" />
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/register_button"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"

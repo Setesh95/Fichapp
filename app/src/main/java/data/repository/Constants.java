@@ -1,4 +1,4 @@
-package com.example.fichapp.ui.repository;
+package data.repository;
 
 class Constants {
     static final String FILE_NAME = "users";

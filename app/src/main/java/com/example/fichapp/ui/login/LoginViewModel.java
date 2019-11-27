@@ -2,7 +2,8 @@ package com.example.fichapp.ui.login;
 
 import android.content.Context;
 
-import com.example.fichapp.ui.repository.Repository;
+import com.example.fichapp.ui.model.UserModel;
+import data.repository.Repository;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
@@ -13,7 +14,7 @@ public class LoginViewModel extends ViewModel {
         repository.setContext(context);
     }
 
-    void loginButtonAction(String email, String password){
+    void loginActionButton(String email, String password){
         UserModel user = new UserModel(email,password);
         repository.findUser(user);
     }
