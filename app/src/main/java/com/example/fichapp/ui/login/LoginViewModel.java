@@ -14,6 +14,7 @@ public class LoginViewModel extends ViewModel {
     }
 
     void loginButtonAction(String email, String password){
-        repository.addUser(new UserModel(email,password));
+        UserModel user = new UserModel(email,password);
+        repository.findUser(user);
     }
 }

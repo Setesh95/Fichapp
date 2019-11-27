@@ -1,26 +1,21 @@
 package com.example.fichapp.ui.repository;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.fichapp.ui.login.UserModel;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.security.auth.callback.Callback;
 
 public class Repository {
     private static Repository repository = null;
     private Context context;
     private ArrayList<UserModel> userList = new ArrayList<>();
+    private String fileName = Constants.FILE_NAME;
 
     private Repository() {
 
@@ -43,60 +38,64 @@ public class Repository {
         this.context = context.getApplicationContext();
     }
 
-    public void addUser(UserModel userModel) {
-        if(fileExist()) {
-            if (fetchUsers()) {
-                try {
-                    FileOutputStream fos = context.openFileOutput("users", Context.MODE_PRIVATE);
-                    ObjectOutputStream os = new ObjectOutputStream(fos);
-                    userList.add(userModel);
-                    os.writeObject(userList);
-                    os.close();
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+    public void addUser(UserModel user) {
+        if (fileExist()) {
+            fetchUsers();
+            if(!findUser(user)){
+                writeFile(user);
             }
+        } else {
+            writeFile(user);
         }
     }
 
-    private boolean fileExist(){
-        try{
-            FileInputStream fis = context.openFileInput("users");
+    public boolean findUser(UserModel user){
+        fetchUsers();
+        for(UserModel userOfList : userList){
+            if(userOfList.getEmail().equals(user.getEmail())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void writeFile(UserModel user) {
+        try {
+            FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            ObjectOutputStream os = new ObjectOutputStream(fos);
+            userList.add(user);
+            os.writeObject(userList);
+            os.close();
+            fos.close();
+            System.out.println(userList.size());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean fileExist() {
+        try {
+            FileInputStream fis = context.openFileInput(fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             fis.close();
             ois.close();
             return true;
         } catch (IOException e) {
-            try {
-                FileOutputStream fos = context.openFileOutput("users", Context.MODE_PRIVATE);
-                ObjectOutputStream os = new ObjectOutputStream(fos);
-                fos.close();
-                os.close();
-                return true;
-            } catch (IOException er) {
-                return false;
-            }
+            return false;
         }
     }
 
-    private boolean fetchUsers(){
-        try{
-            FileInputStream fis = context.openFileInput("users");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            if(ois.available() != 0) {
-                for (UserModel user : (ArrayList<UserModel>) ois.readObject()) {
-                    if (user != null) {
-                        userList.add(user);
-                    }
-                }
+    private void fetchUsers() {
+        if (userList.isEmpty()) {
+            try {
+                FileInputStream fis = context.openFileInput(fileName);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                userList.addAll((ArrayList<UserModel>) ois.readObject());
+                ois.close();
+                fis.close();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            ois.close();
-            fis.close();
-            return true;
-        } catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
-            return false;
         }
     }
 }

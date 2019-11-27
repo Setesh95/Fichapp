@@ -15,22 +15,28 @@ import com.example.fichapp.ui.register.RegisterActivity;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    private EditText emailInput, passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         LoginActivityBinding binding = DataBindingUtil.setContentView(this,R.layout.login_activity);
+
         loginViewModel = new LoginViewModel(this);
         binding.setLifecycleOwner(this);
         binding.setLoginViewModel(loginViewModel);
+
         ImageButton registerButton = findViewById(R.id.register);
+        Button loginButton = findViewById(R.id.login_button);
+        emailInput = findViewById(R.id.emailInput);
+        passwordInput = findViewById(R.id.passwordInput);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startRegisterActivity();
             }
         });
-        final Button loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,10 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void checkValues(){
-        EditText email = findViewById(R.id.emailInput);
-        EditText password = findViewById(R.id.passwordInput);
-        if(email.getText().toString().contains("@") && !password.getText().toString().isEmpty()){
-            loginViewModel.loginButtonAction(email.getText().toString(),password.getText().toString());
-        }
+        String email = emailInput.getText().toString();
+        String password = passwordInput.getText().toString();
+        loginViewModel.loginButtonAction(email,password);
     }
 }
