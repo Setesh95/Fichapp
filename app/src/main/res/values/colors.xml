@@ -4,15 +4,17 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#c33764</color>
     <!--Login Colors-->
-    <color name="pink_acent">#c33764</color>
-    <color name="white_opacity_30">#4Dffffff</color>
+    <color name="pink_accent">#c33764</color>
+    <color name="white_opacity_30">#99FFFFFF</color>
     <color name="white">#ffffff</color>
-    <color name="login_button">#413f54</color>
+    <color name="login_button">#474b4f</color>
+    <color name="register_button_background">#61892f</color>
+    <color name="greenLight">#86c232</color>
 
     <!--Gradient Color -->
     <color name="starColor">#1a236c</color>
     <color name="endColor">#c33764</color>
-    <color name="test1Color">#849DF5</color>
+    <color name="primaryColor">#CC222629</color>
 
     <!--Register Colors -->
     <color name="register_color_card_input">#4D413f54</color>

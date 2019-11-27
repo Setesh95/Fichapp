@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/test1Color"
+        android:background="@color/primaryColor"
         android:fitsSystemWindows="true"
         tools:context=".ui.login.LoginActivity">
 
@@ -33,6 +33,7 @@
             android:clickable="true"
             android:elevation="5dp"
             android:focusable="true"
+            android:backgroundTint="@color/register_button_background"
             app:layout_constraintBottom_toTopOf="@id/input_card"
             app:layout_constraintEnd_toEndOf="@+id/input_card"
             app:layout_constraintRight_toRightOf="@id/input_card"
@@ -60,7 +61,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="@string/login_loginText"
-                android:textColor="@color/white"
+                android:textColor="@color/primaryColor"
                 android:textColorHint="#00FFFDFD"
                 android:textSize="16sp" />
 
@@ -70,19 +71,19 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/white_opacity_30"
+                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/primaryColor"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/primaryColor"
                     android:textSize="@dimen/register_text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,19 +93,19 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/white_opacity_30"
+                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/primaryColor"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/primaryColor"
                     android:textSize="@dimen/register_text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,7 +148,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/login_forgot_password"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@color/greenLight"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
