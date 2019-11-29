@@ -17,7 +17,5 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new MainActivityViewModel();
         binding.setLifecycleOwner(this);
         binding.setViewModel(viewModel);
-
-
     }
 }
