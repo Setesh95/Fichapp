@@ -45,13 +45,19 @@ public class RegisterActivity extends AppCompatActivity {
         registerViewModel.response.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                switch (registerViewModel.response.toString()){
+                switch (s){
                     case Constants.REGISTERED_SUCCESSFULLY :
                         showMessage("Registrado correctamente");
+                        finish();
                         break;
                     case Constants.PASSWORD_NOT_MATCH :
-                        passwordInput.setHint("password must match");
-                        passwordInput.setHintTextColor(getResources().getColor(R.color.warning, null));
+                        showMessage("password must match");
+                        break;
+                    case Constants.PASSWORD_CONTAINS_SPACE:
+                        showMessage("password can not contain space");
+                        break;
+                    case Constants.USER_ALREDY_REGISTERED:
+                        showMessage("user alredy registered");
                         break;
                 }
             }

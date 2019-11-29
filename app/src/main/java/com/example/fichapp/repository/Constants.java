@@ -8,4 +8,5 @@ public class Constants {
     public static final String WRONG_PASSOWRD = "wrong_password";
     public static final String LOGIN_SUCCESSFULLY = "login_successfully";
     public static final String REGISTERED_SUCCESSFULLY = "registered_successfully";
+    public static final String USER_ALREDY_REGISTERED = "user_alredy_registered";
 }
