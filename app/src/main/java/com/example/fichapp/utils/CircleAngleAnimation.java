@@ -1,4 +1,4 @@
-package com.example.fichapp.ui.utils;
+package com.example.fichapp.utils;
 
 import android.view.animation.Animation;
 import android.view.animation.Transformation;

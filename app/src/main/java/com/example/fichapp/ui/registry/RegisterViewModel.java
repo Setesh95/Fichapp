@@ -1,10 +1,10 @@
-package com.example.fichapp.ui.register;
+package com.example.fichapp.ui.registry;
 
 import android.content.Context;
 
-import com.example.fichapp.ui.model.UserModel;
+import com.example.fichapp.model.UserModel;
 
-import data.repository.Repository;
+import com.example.fichapp.repository.Repository;
 
 public class RegisterViewModel {
     private Repository repository;
@@ -15,7 +15,9 @@ public class RegisterViewModel {
     }
 
     void registerActionButton(String company, String email, String password, String checkPassword){
+        if(password.equals(checkPassword)){
         UserModel user = new UserModel(company,email,password);
         repository.addUser(user);
+        }
     }
 }

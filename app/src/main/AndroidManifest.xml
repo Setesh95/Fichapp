@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.register.RegisterActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.main.MainActivity"></activity>
+        <activity
+            android:name=".ui.registry.RegisterActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait">
@@ -21,4 +23,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

@@ -1,8 +1,9 @@
-package com.example.fichapp.ui.register;
+package com.example.fichapp.ui.registry;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -26,5 +27,18 @@ public class RegisterActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         checkPasswordInput = findViewById(R.id.checkPasswordInput);
         Button registerButton = findViewById(R.id.register_button);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerAction();
+            }
+        });
+    }
+    private void registerAction(){
+        String company = companyInput.getText().toString();
+        String email = emailInput.getText().toString();
+        String password = passwordInput.getText().toString();
+        String checkPassword = checkPasswordInput.getText().toString();
+        registerViewModel.registerActionButton(company,email,password, checkPassword);
     }
 }

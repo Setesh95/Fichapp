@@ -1,4 +1,4 @@
-package com.example.fichapp.ui.model;
+package com.example.fichapp.model;
 
 import java.io.Serializable;
 

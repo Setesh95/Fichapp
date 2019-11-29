@@ -1,8 +1,8 @@
-package data.repository;
+package com.example.fichapp.repository;
 
 import android.content.Context;
 
-import com.example.fichapp.ui.model.UserModel;
+import com.example.fichapp.model.UserModel;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -53,6 +53,7 @@ public class Repository {
         fetchUsers();
         for(UserModel userOfList : userList){
             if(userOfList.getEmail().equals(user.getEmail())){
+                System.out.println("aqui");
                 return true;
             }
         }

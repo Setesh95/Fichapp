@@ -16,6 +16,7 @@
     <color name="starColor">#1a236c</color>
     <color name="endColor">#c33764</color>
     <color name="primaryColor">#CC222629</color>
+    <color name="dark">#222629</color>
 
     <!--Register Colors -->
     <color name="register_color_card_input">#4D413f54</color>

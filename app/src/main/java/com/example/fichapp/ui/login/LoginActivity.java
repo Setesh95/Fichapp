@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.LoginActivityBinding;
-import com.example.fichapp.ui.register.RegisterActivity;
+import com.example.fichapp.ui.main.MainActivity;
+import com.example.fichapp.ui.registry.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -51,6 +52,15 @@ public class LoginActivity extends AppCompatActivity {
     private void checkValues(){
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
-        loginViewModel.loginActionButton(email,password);
+        if (loginViewModel.loginActionButton(email,password)){
+            launchApp();
+        }
+    }
+
+    private void launchApp(){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }
