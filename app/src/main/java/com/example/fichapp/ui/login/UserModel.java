@@ -1,19 +1,21 @@
 package com.example.fichapp.ui.login;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
+    private int id;
+    private List<Long> checkInOutList;
     private String email;
     private String password;
     private String name;
     private String lastName;
     private String company;
     private int age;
+    private String role;
 
-    private enum  ROLE { ADMIN, USER};
-
-    public UserModel(String email, String password){
+    UserModel(String email, String password){
         this.email = email;
         this.password = password;
     }
@@ -22,6 +24,7 @@ public class UserModel implements Serializable {
         this.email = email;
         this.company = company;
         this.password = password;
+        this.role = "admin";
     }
 
     public String getCompany() {
@@ -70,5 +73,29 @@ public class UserModel implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public List<Long> getCheckInOutList() {
+        return checkInOutList;
+    }
+
+    public void setCheckInOutList(List<Long> checkInOutList) {
+        this.checkInOutList = checkInOutList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 }

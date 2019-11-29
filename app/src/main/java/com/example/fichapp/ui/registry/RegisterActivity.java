@@ -2,13 +2,18 @@ package com.example.fichapp.ui.registry;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.Observable;
+import androidx.lifecycle.Observer;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.RegisterLayoutBinding;
+import com.example.fichapp.repository.Constants;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -18,7 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        RegisterLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.register_layout);
+        final RegisterLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.register_layout);
         registerViewModel = new RegisterViewModel(this);
         binding.setLifecycleOwner(this);
         binding.setViewModel(registerViewModel);
@@ -33,12 +38,35 @@ public class RegisterActivity extends AppCompatActivity {
                 registerAction();
             }
         });
+        setObserver();
     }
+
+    private void setObserver(){
+        registerViewModel.response.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                switch (registerViewModel.response.toString()){
+                    case Constants.REGISTERED_SUCCESSFULLY :
+                        showMessage("Registrado correctamente");
+                        break;
+                    case Constants.PASSWORD_NOT_MATCH :
+                        passwordInput.setHint("password must match");
+                        passwordInput.setHintTextColor(getResources().getColor(R.color.warning, null));
+                        break;
+                }
+            }
+        });
+    }
+
     private void registerAction(){
         String company = companyInput.getText().toString();
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
         String checkPassword = checkPasswordInput.getText().toString();
         registerViewModel.registerActionButton(company,email,password, checkPassword);
+    }
+
+    private void showMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

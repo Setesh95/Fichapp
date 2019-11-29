@@ -52,7 +52,6 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +73,6 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +94,6 @@
                 android:layout_marginStart="@dimen/register_input"
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
-                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -119,7 +116,6 @@
                 android:layout_marginTop="@dimen/register_margin_top"
                 android:layout_marginEnd="@dimen/register_input"
                 android:layout_marginBottom="50dp"
-                android:textColorHint="@color/primaryColor"
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText

@@ -16,6 +16,7 @@ public class Repository {
     private Context context;
     private ArrayList<UserModel> userList = new ArrayList<>();
     private String fileName = Constants.FILE_NAME;
+    private int idGenerated = 0;
 
     private Repository() {
 
@@ -42,6 +43,8 @@ public class Repository {
         if (fileExist()) {
             fetchUsers();
             if(!findUser(user)){
+                user.setId(generateId());
+                user.setRole("admin");
                 writeFile(user);
             }
         } else {
@@ -49,11 +52,20 @@ public class Repository {
         }
     }
 
+    private int generateId(){
+        for(UserModel userOfList : userList){
+            if(idGenerated <= userOfList.getId()){
+                idGenerated = userOfList.getId() + 1;
+            }
+        }
+        return idGenerated;
+    }
+
     public boolean findUser(UserModel user){
         fetchUsers();
         for(UserModel userOfList : userList){
             if(userOfList.getEmail().equals(user.getEmail())){
-                System.out.println("aqui");
+                System.out.println(userOfList.getId());
                 return true;
             }
         }

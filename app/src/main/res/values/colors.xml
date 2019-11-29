@@ -17,6 +17,7 @@
     <color name="endColor">#c33764</color>
     <color name="primaryColor">#CC222629</color>
     <color name="dark">#222629</color>
+    <color name="warning">#A01A1A</color>
 
     <!--Register Colors -->
     <color name="register_color_card_input">#4D413f54</color>
