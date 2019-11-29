@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class Repository {
     private static Repository repository = null;
+    private UserModel userLoged = null;
     private Context context;
     private ArrayList<UserModel> userList = new ArrayList<>();
     private String fileName = Constants.FILE_NAME;
@@ -65,8 +66,20 @@ public class Repository {
         fetchUsers();
         for(UserModel userOfList : userList){
             if(userOfList.getEmail().equals(user.getEmail())){
-                System.out.println(userOfList.getId());
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkPassword(UserModel user){
+        fetchUsers();
+        for(UserModel usersOfList : userList){
+            if(user.getEmail().equals(usersOfList.getEmail())){
+                if(user.getPassword().equals(usersOfList.getPassword())){
+                    this.userLoged = user;
+                    return true;
+                }
             }
         }
         return false;
@@ -96,6 +109,10 @@ public class Repository {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public UserModel getUserLoged(){
+        return this.userLoged;
     }
 
     private void fetchUsers() {

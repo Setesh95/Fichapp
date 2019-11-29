@@ -68,8 +68,8 @@ public class RegisterActivity extends AppCompatActivity {
         String company = companyInput.getText().toString();
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
-        String checkPassword = checkPasswordInput.getText().toString();
-        registerViewModel.registerActionButton(company,email,password, checkPassword);
+        String passwordRepeat = checkPasswordInput.getText().toString();
+        registerViewModel.registerActionButton(company,email,password, passwordRepeat);
     }
 
     private void showMessage(String message){

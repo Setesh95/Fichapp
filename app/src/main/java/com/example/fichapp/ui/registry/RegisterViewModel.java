@@ -16,13 +16,13 @@ public class RegisterViewModel extends ViewModel {
         repository.setContext(context);
     }
 
-    void registerActionButton(String company, String email, String password, String checkPassword) {
+    void registerActionButton(String company, String email, String password, String passwordRepeat) {
         UserModel user = new UserModel(company, email, password);
         if (repository.findUser(user)) {
             response.setValue(Constants.USER_ALREDY_REGISTERED);
         } else {
             if (!password.contains(" ")) {
-                if (password.equals(checkPassword)) {
+                if (password.equals(passwordRepeat)) {
                     repository.addUser(user);
                     response.setValue(Constants.REGISTERED_SUCCESSFULLY);
                 } else {
