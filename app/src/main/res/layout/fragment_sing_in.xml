@@ -87,15 +87,18 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/stopWork"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/greenLight"
                     android:layout_marginEnd="20dp"
                     android:elevation="2dp"
                     android:src="@drawable/ic_detener"
+                    android:visibility="gone"
                     app:borderWidth="0dp" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/signInOut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
