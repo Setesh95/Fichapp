@@ -7,6 +7,7 @@
         <variable
             name="viewModel"
             type="com.example.fichapp.ui.singing.SingInViewModel" />
+        <import type="android.view.View"/>
     </data>
 
     <FrameLayout
@@ -94,7 +95,7 @@
                     android:layout_marginEnd="20dp"
                     android:elevation="2dp"
                     android:src="@drawable/ic_detener"
-                    android:visibility="gone"
+                    android:visibility="@{viewModel.actionButton ? View.VISIBLE : View.GONE}"
                     app:borderWidth="0dp" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -105,6 +106,7 @@
                     android:backgroundTint="@color/greenLight"
                     android:layout_marginStart="20dp"
                     android:elevation="2dp"
+                    android:onClick="@{() -> viewModel.signInOutAction()}"
                     android:src="@drawable/ic_boton_de_reproduccion_punta_de_flecha"
                     app:borderWidth="0dp" />
             </LinearLayout>

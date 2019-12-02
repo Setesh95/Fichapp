@@ -32,7 +32,7 @@ public class SingInFragment extends Fragment {
     ) {
         FragmentSingInBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_sing_in, container,false);
         binding.setLifecycleOwner(this);
-        viewModel = new SingInViewModel();
+        viewModel = new SingInViewModel(getContext());
         binding.setViewModel(viewModel);
         return binding.getRoot();
     }
@@ -40,13 +40,11 @@ public class SingInFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        signInOut = Objects.requireNonNull(getView()).findViewById(R.id.signInOut);
+        signInOut = getView().findViewById(R.id.signInOut);
         stopWork = getView().findViewById(R.id.stopWork);
         signInOut.setOnClickListener(new View.OnClickListener(){
-            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View v) {
-                stopWork.setVisibility(View.VISIBLE);
                 signInOut.setImageResource(R.drawable.ic_simbolo_de_pausa);
             }
         });

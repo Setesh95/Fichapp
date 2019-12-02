@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Repository {
     private static Repository repository = null;
@@ -46,10 +47,12 @@ public class Repository {
             if(!findUser(user)){
                 user.setId(generateId());
                 user.setRole("admin");
-                writeFile(user);
+                userList.add(user);
+                writeFile();
             }
         } else {
-            writeFile(user);
+            userList.add(user);
+            writeFile();
         }
     }
 
@@ -72,6 +75,10 @@ public class Repository {
         return false;
     }
 
+    public void setUserLoged(UserModel userLoged){
+        this.userLoged = userLoged;
+    }
+
     public boolean checkPassword(UserModel user){
         fetchUsers();
         for(UserModel usersOfList : userList){
@@ -85,15 +92,13 @@ public class Repository {
         return false;
     }
 
-    private void writeFile(UserModel user) {
+    private void writeFile() {
         try {
             FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             ObjectOutputStream os = new ObjectOutputStream(fos);
-            userList.add(user);
             os.writeObject(userList);
             os.close();
             fos.close();
-            System.out.println(userList.size());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,10 +116,6 @@ public class Repository {
         }
     }
 
-    public UserModel getUserLoged(){
-        return this.userLoged;
-    }
-
     private void fetchUsers() {
         if (userList.isEmpty()) {
             try {
@@ -127,5 +128,24 @@ public class Repository {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void registerAction(String date){
+        List<String> registerList;
+        registerList = userLoged.getCheckInOutList();
+        registerList.add(date);
+        userLoged.setCheckInOutList(registerList);
+    }
+
+    public void updateUser(){
+        ArrayList<UserModel> updatedList = new ArrayList<>();
+        for(UserModel userOfList : userList){
+            if(userOfList.getEmail().equals(userLoged.getEmail())){
+                updatedList.add(userLoged);
+            } else {
+                updatedList.add(userOfList);
+            }
+        }
+        userList = updatedList;
     }
 }

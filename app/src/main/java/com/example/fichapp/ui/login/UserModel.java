@@ -6,7 +6,7 @@ import java.util.List;
 public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
-    private List<Long> checkInOutList;
+    private List<String> checkInOutList;
     private String email;
     private String password;
     private String name;
@@ -83,11 +83,11 @@ public class UserModel implements Serializable {
         this.role = role;
     }
 
-    public List<Long> getCheckInOutList() {
+    public List<String> getCheckInOutList() {
         return checkInOutList;
     }
 
-    public void setCheckInOutList(List<Long> checkInOutList) {
+    public void setCheckInOutList(List<String> checkInOutList) {
         this.checkInOutList = checkInOutList;
     }
 
