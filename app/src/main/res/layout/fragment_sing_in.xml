@@ -60,7 +60,8 @@
                     android:id="@+id/currentTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:00m"
+                    android:text="@{viewModel.currentTimeWorked}"
+                    tools:text="00:00m"
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +73,8 @@
                     android:id="@+id/lastActionTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:00h"
+                    android:text="@{viewModel.lastAction}"
+                    tools:text="00:00h"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -95,7 +97,8 @@
                     android:layout_marginEnd="20dp"
                     android:elevation="2dp"
                     android:src="@drawable/ic_detener"
-                    android:visibility="@{viewModel.actionButton ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{() -> viewModel.signOut()}"
+                    android:visibility="@{viewModel.registerStatus ? View.VISIBLE : View.GONE}"
                     app:borderWidth="0dp" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -106,7 +109,7 @@
                     android:backgroundTint="@color/greenLight"
                     android:layout_marginStart="20dp"
                     android:elevation="2dp"
-                    android:onClick="@{() -> viewModel.signInOutAction()}"
+                    android:onClick="@{() -> viewModel.signInAction()}"
                     android:src="@drawable/ic_boton_de_reproduccion_punta_de_flecha"
                     app:borderWidth="0dp" />
             </LinearLayout>

@@ -22,7 +22,6 @@ public class LoginViewModel extends ViewModel {
         if(repository.findUser(user)){
             if (repository.checkPassword(user)){
                 response.setValue(Constants.LOGIN_SUCCESSFULLY);
-                repository.setUserLoged(user);
             } else {
                 response.setValue(Constants.WRONG_PASSOWRD);
             }

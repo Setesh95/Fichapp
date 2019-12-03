@@ -1,17 +1,16 @@
 package com.example.fichapp.ui.singing;
 
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.FragmentSingInBinding;
@@ -22,7 +21,7 @@ import java.util.Objects;
 public class SingInFragment extends Fragment {
 
     private SingInViewModel viewModel;
-    FloatingActionButton signInOut, stopWork;
+    private FloatingActionButton signInOut;
 
     @Override
     public View onCreateView(
@@ -30,7 +29,7 @@ public class SingInFragment extends Fragment {
             ViewGroup container,
             Bundle savedInstanceState
     ) {
-        FragmentSingInBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_sing_in, container,false);
+        FragmentSingInBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sing_in, container, false);
         binding.setLifecycleOwner(this);
         viewModel = new SingInViewModel(getContext());
         binding.setViewModel(viewModel);
@@ -40,14 +39,20 @@ public class SingInFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        signInOut = getView().findViewById(R.id.signInOut);
-        stopWork = getView().findViewById(R.id.stopWork);
-        signInOut.setOnClickListener(new View.OnClickListener(){
+        signInOut = Objects.requireNonNull(getView()).findViewById(R.id.signInOut);
+        setObserver();
+    }
+
+    private void setObserver() {
+        viewModel.pausedStatus.observe(this, new Observer<Boolean>() {
             @Override
-            public void onClick(View v) {
-                signInOut.setImageResource(R.drawable.ic_simbolo_de_pausa);
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean) {
+                    signInOut.setImageResource(R.drawable.ic_simbolo_de_pausa);
+                } else {
+                    signInOut.setImageResource(R.drawable.ic_boton_de_reproduccion_punta_de_flecha);
+                }
             }
         });
     }
-
 }

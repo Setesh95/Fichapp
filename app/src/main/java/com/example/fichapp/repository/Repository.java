@@ -75,16 +75,13 @@ public class Repository {
         return false;
     }
 
-    public void setUserLoged(UserModel userLoged){
-        this.userLoged = userLoged;
-    }
-
     public boolean checkPassword(UserModel user){
         fetchUsers();
         for(UserModel usersOfList : userList){
             if(user.getEmail().equals(usersOfList.getEmail())){
                 if(user.getPassword().equals(usersOfList.getPassword())){
-                    this.userLoged = user;
+                    this.userLoged = usersOfList;
+                    System.out.println(userLoged.getEmail() + " " + userLoged.getCheckInOutList());
                     return true;
                 }
             }
@@ -131,13 +128,21 @@ public class Repository {
     }
 
     public void registerAction(String date){
-        List<String> registerList;
-        registerList = userLoged.getCheckInOutList();
-        registerList.add(date);
-        userLoged.setCheckInOutList(registerList);
+        ArrayList<String> registerList = new ArrayList<>();
+        System.out.println(date);
+        if(!userLoged.getCheckInOutList().isEmpty()){
+            registerList = userLoged.getCheckInOutList();
+            registerList.add(date);
+            userLoged.setCheckInOutList(registerList);
+        }
+        else {
+            registerList.add(date);
+            userLoged.setCheckInOutList(registerList);
+        }
+        updateUser();
     }
 
-    public void updateUser(){
+    private void updateUser(){
         ArrayList<UserModel> updatedList = new ArrayList<>();
         for(UserModel userOfList : userList){
             if(userOfList.getEmail().equals(userLoged.getEmail())){
@@ -147,5 +152,6 @@ public class Repository {
             }
         }
         userList = updatedList;
+        writeFile();
     }
 }
