@@ -33,15 +33,14 @@ public class SingInViewModel extends ViewModel {
             pausedStatus.setValue(!pausedStatus.getValue());
         }
         calendar = Calendar.getInstance().getTime();
-        String date = DateUtils.dateToString(calendar);
         String lastAction = DateUtils.dateToClockString(calendar) + 'h';
         this.lastAction.setValue(lastAction);
-        repository.registerAction(date);
+        repository.registerAction(calendar);
     }
 
     public void signOut(){
         calendar = Calendar.getInstance().getTime();
-        repository.registerAction(DateUtils.dateToString(calendar));
+        repository.registerAction(calendar);
         registerStatus.setValue(false);
         pausedStatus.setValue(false);
     }
