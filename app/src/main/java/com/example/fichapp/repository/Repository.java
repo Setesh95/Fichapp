@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Repository {
@@ -81,7 +82,6 @@ public class Repository {
             if(user.getEmail().equals(usersOfList.getEmail())){
                 if(user.getPassword().equals(usersOfList.getPassword())){
                     this.userLoged = usersOfList;
-                    System.out.println(userLoged.getEmail() + " " + userLoged.getCheckInOutList());
                     return true;
                 }
             }
@@ -127,9 +127,8 @@ public class Repository {
         }
     }
 
-    public void registerAction(String date){
-        ArrayList<String> registerList = new ArrayList<>();
-        System.out.println(date);
+    public void registerAction(Date date){
+        ArrayList<Date> registerList = new ArrayList<>();
         if(!userLoged.getCheckInOutList().isEmpty()){
             registerList = userLoged.getCheckInOutList();
             registerList.add(date);

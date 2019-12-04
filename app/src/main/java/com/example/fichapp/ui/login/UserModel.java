@@ -2,12 +2,12 @@ package com.example.fichapp.ui.login;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
-    private ArrayList<String> checkInOutList = new ArrayList<>();
+    private ArrayList<Date> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
     private String name;
@@ -84,11 +84,11 @@ public class UserModel implements Serializable {
         this.role = role;
     }
 
-    public ArrayList<String> getCheckInOutList() {
+    public ArrayList<Date> getCheckInOutList() {
         return checkInOutList;
     }
 
-    public void setCheckInOutList(ArrayList<String> checkInOutList) {
+    public void setCheckInOutList(ArrayList<Date> checkInOutList) {
         this.checkInOutList = checkInOutList;
     }
 
