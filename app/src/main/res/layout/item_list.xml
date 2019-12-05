@@ -2,15 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp" 
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
     android:background="@drawable/item_list_shape">
 
     <TextView
+        android:id="@+id/firstText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:text="27/07/2019"
+        tools:text="27/07/2019"
         android:textColor="@color/greenDark" />
 
     <View
@@ -22,9 +25,10 @@
         android:background="@color/white" />
 
     <TextView
+        android:id="@+id/secondText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="08:21:04"
+        tools:text="08:21:04"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:textColor="@color/white" />
@@ -39,9 +43,10 @@
         android:background="@drawable/ic_right_arrow" />
 
     <TextView
+        android:id="@+id/thirdText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="17:20:15"
+        tools:text="17:20:15"
         android:textColor="@color/white" />
 
 

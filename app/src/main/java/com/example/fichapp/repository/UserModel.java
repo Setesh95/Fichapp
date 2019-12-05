@@ -1,4 +1,4 @@
-package com.example.fichapp.ui.login;
+package com.example.fichapp.repository;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class UserModel implements Serializable {
     private int age;
     private String role;
 
-    UserModel(String email, String password){
+    public UserModel(String email, String password){
         this.email = email;
         this.password = password;
     }

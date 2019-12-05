@@ -1,10 +1,9 @@
 package com.example.fichapp.ui.login;
 
 import android.content.Context;
-
 import com.example.fichapp.repository.Constants;
 import com.example.fichapp.repository.Repository;
-
+import com.example.fichapp.repository.UserModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 

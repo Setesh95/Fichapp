@@ -1,9 +1,6 @@
 package com.example.fichapp.repository;
 
 import android.content.Context;
-
-import com.example.fichapp.ui.login.UserModel;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Repository {
     private static Repository repository = null;
