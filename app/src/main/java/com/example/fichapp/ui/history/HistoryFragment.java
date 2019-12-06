@@ -32,10 +32,9 @@ public class HistoryFragment extends Fragment {
             ViewGroup container,
             Bundle savedInstanceState
     ) {
-        viewModel = new HistoryViewModel();
         FragmentHistoryBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_history, container,false);
         binding.setLifecycleOwner(this);
-        viewModel = new HistoryViewModel();
+        viewModel = new HistoryViewModel(getContext());
         binding.setViewModel(viewModel);
         return binding.getRoot();
     }

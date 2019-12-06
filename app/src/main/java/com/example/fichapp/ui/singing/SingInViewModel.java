@@ -11,7 +11,7 @@ import java.util.Date;
 public class SingInViewModel extends ViewModel {
 
     private Repository repository;
-    public MutableLiveData<Boolean> registerStatus = new MutableLiveData<>();
+    //public MutableLiveData<Boolean> registerStatus = new MutableLiveData<>();
     MutableLiveData<Boolean> pausedStatus = new MutableLiveData<>();
     public MutableLiveData<String> lastAction = new MutableLiveData<>();
     public MutableLiveData<String> currentTimeWorked = new MutableLiveData<>();
@@ -20,15 +20,11 @@ public class SingInViewModel extends ViewModel {
     SingInViewModel(Context context){
         repository = Repository.get();
         repository.setContext(context);
-        registerStatus.setValue(false);
         pausedStatus.setValue(false);
         lastAction.setValue("00:00h");
         currentTimeWorked.setValue("00:00m");
     }
     public void signInAction(){
-        if(registerStatus.getValue() != null) {
-            registerStatus.setValue(true);
-        }
         if(pausedStatus.getValue() != null){
             pausedStatus.setValue(!pausedStatus.getValue());
         }
@@ -36,12 +32,5 @@ public class SingInViewModel extends ViewModel {
         String lastAction = DateUtils.dateToClockString(calendar) + 'h';
         this.lastAction.setValue(lastAction);
         repository.registerAction(calendar);
-    }
-
-    public void signOut(){
-        calendar = Calendar.getInstance().getTime();
-        repository.registerAction(calendar);
-        registerStatus.setValue(false);
-        pausedStatus.setValue(false);
     }
 }

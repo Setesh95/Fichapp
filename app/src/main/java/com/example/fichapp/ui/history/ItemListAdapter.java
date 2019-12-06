@@ -13,11 +13,11 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
     private ArrayList<RegisterHistoryModel> dateList;
 
-    public static class ItemListViewHolder extends RecyclerView.ViewHolder {
+    static class ItemListViewHolder extends RecyclerView.ViewHolder {
 
         TextView firstText, secondText, thirdText;
 
-        public ItemListViewHolder(View v) {
+        ItemListViewHolder(View v) {
             super(v);
             this.firstText = v.getRootView().findViewById(R.id.firstText);
             this.secondText = v.getRootView().findViewById(R.id.secondText);
@@ -25,7 +25,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
         }
     }
 
-    public ItemListAdapter(ArrayList<RegisterHistoryModel> dateList) {
+    ItemListAdapter(ArrayList<RegisterHistoryModel> dateList) {
         this.dateList = dateList;
     }
 

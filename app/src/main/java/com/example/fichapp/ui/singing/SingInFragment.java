@@ -48,7 +48,7 @@ public class SingInFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    signInOut.setImageResource(R.drawable.ic_simbolo_de_pausa);
+                    signInOut.setImageResource(R.drawable.ic_detener);
                 } else {
                     signInOut.setImageResource(R.drawable.ic_boton_de_reproduccion_punta_de_flecha);
                 }

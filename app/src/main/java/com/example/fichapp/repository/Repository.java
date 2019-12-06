@@ -149,4 +149,8 @@ public class Repository {
         userList = updatedList;
         writeFile();
     }
+
+    public ArrayList<Date> getDateList(){
+        return userLoged.getCheckInOutList();
+    }
 }
