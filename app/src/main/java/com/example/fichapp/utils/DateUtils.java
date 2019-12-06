@@ -9,6 +9,10 @@ public class DateUtils {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.getDefault());
         return format.format(date);
     }
+    public static String toDateString(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+        return format.format(date);
+    }
     public static String dateToClockString(Date date){
         SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
         return format.format(date);
