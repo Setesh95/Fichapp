@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction transaction;
     private SingInFragment singInFragment = new SingInFragment();
     private HistoryFragment historyFragment = new HistoryFragment();
-    ImageButton singInButton, userButton, configButton;
+    ImageButton singInButton, userButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +33,34 @@ public class MainActivity extends AppCompatActivity {
         binding.setViewModel(viewModel);
         singInButton = findViewById(R.id.sing_in_button);
         userButton = findViewById(R.id.user_button);
-        configButton = findViewById(R.id.config_button);
+        setObservers();
+    }
 
-        transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment, singInFragment);
-        transaction.commit();
-        userButton.setOnClickListener(new View.OnClickListener() {
+    private void setObservers(){
+        viewModel.sign.observe(this, new Observer<Boolean>() {
             @Override
-            public void onClick(View v) {
-                startHistory();
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    singInButton.setImageResource(R.drawable.ic_hora_selected);
+                    singInButton.setBackground(getDrawable(R.color.selectedNavButton));
+                    startSingIn();
+                } else {
+                    singInButton.setImageResource(R.drawable.ic_hora);
+                    singInButton.setBackground(getDrawable(R.color.dark));
+                }
             }
         });
-        singInButton.setOnClickListener(new View.OnClickListener() {
+        viewModel.history.observe(this, new Observer<Boolean>() {
             @Override
-            public void onClick(View v) {
-                startSingIn();
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean) {
+                    userButton.setImageResource(R.drawable.ic_avatar_selected);
+                    userButton.setBackground(getDrawable(R.color.selectedNavButton));
+                    startHistory();
+                } else {
+                    userButton.setImageResource(R.drawable.ic_avatar);
+                    userButton.setBackground(getDrawable(R.color.dark));
+                }
             }
         });
     }
