@@ -21,14 +21,10 @@ import java.util.Objects;
 public class HistoryFragment extends Fragment {
 
     private HistoryViewModel viewModel;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager manager;
-    private ArrayList<RegisterHistoryModel> dataList;
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater,
+            @NonNull LayoutInflater inflater,
             ViewGroup container,
             Bundle savedInstanceState
     ) {
@@ -42,16 +38,16 @@ public class HistoryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        manager = new LinearLayoutManager(getContext());
-        recyclerView = Objects.requireNonNull(getView()).findViewById(R.id.history_list);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
+        RecyclerView recyclerView = Objects.requireNonNull(getView()).findViewById(R.id.history_list);
         recyclerView.setLayoutManager(manager);
-        infalteList();
-        adapter = new ItemListAdapter(viewModel.getHistoryList());
+        inflateList();
+        RecyclerView.Adapter adapter = new ItemListAdapter(viewModel.getHistoryList());
         recyclerView.setAdapter(adapter);
     }
 
-    private void infalteList(){
-        dataList = new ArrayList<>();
+    private void inflateList(){
+        ArrayList<RegisterHistoryModel> dataList = new ArrayList<>();
         dataList.add(new RegisterHistoryModel("01/12/2019","08:00:21","18:01:22"));
         dataList.add(new RegisterHistoryModel("02/12/2019","08:01:13","18:00:15"));
     }

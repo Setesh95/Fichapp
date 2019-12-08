@@ -16,12 +16,12 @@ public class UserModel implements Serializable {
     private int age;
     private String role;
 
-    public UserModel(String email, String password){
+    public UserModel(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public UserModel(String company, String email, String password){
+    public UserModel(String company, String email, String password) {
         this.email = email;
         this.company = company;
         this.password = password;
@@ -96,7 +96,7 @@ public class UserModel implements Serializable {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 }

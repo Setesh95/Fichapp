@@ -22,7 +22,7 @@ public class LoginViewModel extends ViewModel {
             if (repository.checkPassword(user)){
                 response.setValue(Constants.LOGIN_SUCCESSFULLY);
             } else {
-                response.setValue(Constants.WRONG_PASSOWRD);
+                response.setValue(Constants.WRONG_PASSWORD);
             }
         } else {
             response.setValue(Constants.USER_NOT_FOUND);

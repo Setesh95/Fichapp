@@ -55,7 +55,7 @@
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/companyInput"
+                    android:id="@+id/company_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primaryColor"
@@ -76,7 +76,7 @@
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/emailInput"
+                    android:id="@+id/email_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primaryColor"
@@ -97,7 +97,7 @@
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/passwordInput"
+                    android:id="@+id/password_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primaryColor"
@@ -119,7 +119,7 @@
                 app:hintTextAppearance="@style/HintThemme">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/checkPasswordInput"
+                    android:id="@+id/password_repeat_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primaryColor"

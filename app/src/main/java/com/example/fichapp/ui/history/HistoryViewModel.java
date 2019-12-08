@@ -1,11 +1,15 @@
 package com.example.fichapp.ui.history;
 
 import android.content.Context;
+
 import com.example.fichapp.repository.Repository;
+
 import java.util.ArrayList;
 import java.util.Date;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import static com.example.fichapp.utils.DateUtils.dateToClockString;
 import static com.example.fichapp.utils.DateUtils.toDateString;
 
@@ -14,7 +18,8 @@ public class HistoryViewModel extends ViewModel {
     private ArrayList<Date> dateList;
     private ArrayList<RegisterHistoryModel> historyList = new ArrayList<>();
     public MutableLiveData<Boolean> empryList = new MutableLiveData<>();
-    HistoryViewModel (Context context){
+
+    HistoryViewModel(Context context) {
         empryList.setValue(true);
         repository = Repository.get();
         repository.setContext(context);
@@ -22,7 +27,7 @@ public class HistoryViewModel extends ViewModel {
         filterList();
     }
 
-    private void filterList(){
+    private void filterList() {
         RegisterHistoryModel history;
         boolean cond = true;
         boolean cond1;
@@ -31,10 +36,10 @@ public class HistoryViewModel extends ViewModel {
         String timeIn = "";
         String timeOut;
         Date olderDate;
-        if (!dateList.isEmpty()){
-            for(int i=0; i < dateList.size(); i++){
-                if(i+1 == dateList.size()){
-                    if(!cond1) {
+        if (!dateList.isEmpty()) {
+            for (int i = 0; i < dateList.size(); i++) {
+                if (i + 1 == dateList.size()) {
+                    if (!cond1) {
                         olderDate = dateList.get(i);
                         day = toDateString(olderDate);
                         timeIn = dateToClockString(olderDate);
@@ -42,7 +47,7 @@ public class HistoryViewModel extends ViewModel {
                         history = new RegisterHistoryModel(day, timeIn, timeOut);
                         historyList.add(history);
                     }
-                } else if (cond){
+                } else if (cond) {
                     olderDate = dateList.get(i);
                     day = toDateString(olderDate);
                     timeIn = dateToClockString(olderDate);
@@ -50,7 +55,7 @@ public class HistoryViewModel extends ViewModel {
                 } else {
                     olderDate = dateList.get(i);
                     timeOut = dateToClockString(olderDate);
-                    history = new RegisterHistoryModel(day,timeIn,timeOut);
+                    history = new RegisterHistoryModel(day, timeIn, timeOut);
                     historyList.add(history);
                     cond = true;
                 }

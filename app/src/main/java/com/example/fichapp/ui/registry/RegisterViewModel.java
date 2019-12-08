@@ -1,9 +1,11 @@
 package com.example.fichapp.ui.registry;
 
 import android.content.Context;
+
 import com.example.fichapp.repository.Constants;
 import com.example.fichapp.repository.UserModel;
 import com.example.fichapp.repository.Repository;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -16,10 +18,10 @@ public class RegisterViewModel extends ViewModel {
         repository.setContext(context);
     }
 
-    void registerActionButton(String company, String email, String password, String passwordRepeat) {
+    void registerNewUser(String company, String email, String password, String passwordRepeat) {
         UserModel user = new UserModel(company, email, password);
         if (repository.findUser(user)) {
-            response.setValue(Constants.USER_ALREDY_REGISTERED);
+            response.setValue(Constants.EMAIL_ALREADY_REGISTERED);
         } else {
             if (!password.contains(" ")) {
                 if (password.equals(passwordRepeat)) {

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.ActivityMainBinding;
 import com.example.fichapp.ui.history.HistoryFragment;
@@ -35,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment, singInFragment);
         transaction.commit();
-        userButton.setOnClickListener(new View.OnClickListener(){
+        userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startHistory();
             }
         });
-        singInButton.setOnClickListener(new View.OnClickListener(){
+        singInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSingIn();
@@ -49,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void startSingIn(){
+    private void startSingIn() {
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment, singInFragment);
         transaction.commit();
     }
 
-    private void startHistory(){
+    private void startHistory() {
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment, historyFragment);
         transaction.commit();
