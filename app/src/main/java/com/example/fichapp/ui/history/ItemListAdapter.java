@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListViewHolder> {
 
-    private ArrayList<RegisterHistoryModel> dateList;
+    private ArrayList<RegisterHistoryModel> registerHistoryModelList;
 
     static class ItemListViewHolder extends RecyclerView.ViewHolder {
 
@@ -28,28 +28,28 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
         }
     }
 
-    ItemListAdapter(ArrayList<RegisterHistoryModel> dateList) {
-        this.dateList = dateList;
+    ItemListAdapter(ArrayList<RegisterHistoryModel> registerHistoryModelList) {
+        this.registerHistoryModelList = registerHistoryModelList;
     }
 
     @NonNull
     @Override
     public ItemListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vl = LayoutInflater.from(parent.getContext())
+        View layoutInflater = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_list, parent, false);
-        return new ItemListViewHolder(vl);
+        return new ItemListViewHolder(layoutInflater);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemListViewHolder holder, int position) {
 
-        holder.firstText.setText(dateList.get(position).getDay());
-        holder.secondText.setText(dateList.get(position).getTimeCheckIn());
-        holder.thirdText.setText(dateList.get(position).getTimeCheckOut());
+        holder.firstText.setText(registerHistoryModelList.get(position).getDay());
+        holder.secondText.setText(registerHistoryModelList.get(position).getTimeCheckIn());
+        holder.thirdText.setText(registerHistoryModelList.get(position).getTimeCheckOut());
     }
 
     @Override
     public int getItemCount() {
-        return dateList.size();
+        return registerHistoryModelList.size();
     }
 }

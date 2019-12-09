@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DateUtils {
-    public static String dateToString(Date date) {
+    public static String toDateTimeString(Date date) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.getDefault());
         return format.format(date);
     }
@@ -15,7 +15,7 @@ public class DateUtils {
         return format.format(date);
     }
 
-    public static String dateToClockString(Date date) {
+    public static String toTimeString(Date date) {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
         return format.format(date);
     }
