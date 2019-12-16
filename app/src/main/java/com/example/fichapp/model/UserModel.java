@@ -1,4 +1,4 @@
-package com.example.fichapp.repository;
+package com.example.fichapp.model;
 
 import com.example.fichapp.ui.history.RegisterHistoryModel;
 
