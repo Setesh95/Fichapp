@@ -5,6 +5,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import com.example.fichapp.model.UserModel;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Dao
 public interface UserDao {

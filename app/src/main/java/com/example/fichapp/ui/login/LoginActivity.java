@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new LoginViewModel(this);
         binding.setLifecycleOwner(this);
         binding.setViewModel(loginViewModel);
-
         ImageButton registerButton = findViewById(R.id.register_button);
         Button loginButton = findViewById(R.id.login_button);
         emailInput = findViewById(R.id.email_input);

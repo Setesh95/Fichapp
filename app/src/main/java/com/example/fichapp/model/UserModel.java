@@ -10,7 +10,7 @@ public class UserModel implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
+//    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
     private String name;
@@ -18,11 +18,6 @@ public class UserModel implements Serializable {
     private String company;
     private int age;
     private String role;
-
-    public UserModel(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
     public UserModel(String company, String email, String password) {
         this.email = email;
@@ -87,13 +82,13 @@ public class UserModel implements Serializable {
         this.role = role;
     }
 
-    public ArrayList<RegisterHistoryModel> getCheckInOutList() {
-        return checkInOutList;
-    }
+//    public ArrayList<RegisterHistoryModel> getCheckInOutList() {
+//        return checkInOutList;
+//    }
 
-    public void setCheckInOutList(ArrayList<RegisterHistoryModel> checkInOutList) {
-        this.checkInOutList = checkInOutList;
-    }
+//    public void setCheckInOutList(ArrayList<RegisterHistoryModel> checkInOutList) {
+//        this.checkInOutList = checkInOutList;
+//    }
 
     public int getId() {
         return id;

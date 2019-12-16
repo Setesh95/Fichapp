@@ -23,7 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final RegisterLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.register_layout);
-        registerViewModel = new RegisterViewModel(this);
+        registerViewModel = new RegisterViewModel(getApplication());
         binding.setLifecycleOwner(this);
         binding.setViewModel(registerViewModel);
         companyInput = findViewById(R.id.company_input);
@@ -31,12 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.password_input);
         passwordRepeatInput = findViewById(R.id.password_repeat_input);
         Button registerButton = findViewById(R.id.register_button);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerAction();
-            }
-        });
+        registerButton.setOnClickListener(v -> registerAction());
         setObserver();
     }
 
