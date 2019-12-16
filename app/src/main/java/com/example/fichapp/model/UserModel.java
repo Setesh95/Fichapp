@@ -1,14 +1,15 @@
 package com.example.fichapp.model;
-
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 import com.example.fichapp.ui.history.RegisterHistoryModel;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
+@Entity(tableName = "user_table")
 public class UserModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
     private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
