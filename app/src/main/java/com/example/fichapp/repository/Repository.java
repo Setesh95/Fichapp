@@ -2,6 +2,10 @@ package com.example.fichapp.repository;
 
 import android.content.Context;
 
+import com.example.fichapp.model.UserModel;
+import com.example.fichapp.ui.history.RegisterHistoryModel;
+import com.example.fichapp.utils.DateUtils;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -125,32 +129,41 @@ public class Repository {
     }
 
     public void registerAction(Date date) {
-        ArrayList<Date> registerList = new ArrayList<>();
+
+        ArrayList<RegisterHistoryModel> registerList;
+        registerList = userLogged.getCheckInOutList();
         if (!userLogged.getCheckInOutList().isEmpty()) {
-            registerList = userLogged.getCheckInOutList();
-            registerList.add(date);
-            userLogged.setCheckInOutList(registerList);
+            RegisterHistoryModel lastRegister = registerList.get(registerList.size() - 1);
+            if (lastRegister.getTimeCheckOut() == null) {
+                lastRegister.setTimeCheckOut(DateUtils.toTimeString(date));
+            } else {
+                registerList.add(newRegister(date));
+            }
         } else {
-            registerList.add(date);
-            userLogged.setCheckInOutList(registerList);
+            registerList.add(newRegister(date));
         }
-        updateUser();
+        userLogged.setCheckInOutList(registerList);
+        updateUserHistoryList();
     }
 
-    private void updateUser() {
+    private RegisterHistoryModel newRegister(Date date) {
+        return new RegisterHistoryModel(DateUtils.toDateString(date), DateUtils.toTimeString(date), null);
+    }
+
+    private void updateUserHistoryList() {
         ArrayList<UserModel> updatedList = new ArrayList<>();
-        for (UserModel userOfList : userList) {
-            if (userOfList.getEmail().equals(userLogged.getEmail())) {
+        for (UserModel user : userList) {
+            if (user.getEmail().equals(userLogged.getEmail())) {
                 updatedList.add(userLogged);
             } else {
-                updatedList.add(userOfList);
+                updatedList.add(user);
             }
         }
-        userList = updatedList;
+        this.userList = updatedList;
         writeFile();
     }
 
-    public ArrayList<Date> getDateList() {
+    public ArrayList<RegisterHistoryModel> getDateList() {
         return userLogged.getCheckInOutList();
     }
 }

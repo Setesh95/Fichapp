@@ -1,4 +1,6 @@
-package com.example.fichapp.repository;
+package com.example.fichapp.model;
+
+import com.example.fichapp.ui.history.RegisterHistoryModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.Date;
 public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
-    private ArrayList<Date> checkInOutList = new ArrayList<>();
+    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
     private String name;
@@ -84,11 +86,11 @@ public class UserModel implements Serializable {
         this.role = role;
     }
 
-    public ArrayList<Date> getCheckInOutList() {
+    public ArrayList<RegisterHistoryModel> getCheckInOutList() {
         return checkInOutList;
     }
 
-    public void setCheckInOutList(ArrayList<Date> checkInOutList) {
+    public void setCheckInOutList(ArrayList<RegisterHistoryModel> checkInOutList) {
         this.checkInOutList = checkInOutList;
     }
 

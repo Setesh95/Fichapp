@@ -1,25 +1,37 @@
 package com.example.fichapp.ui.history;
 
-class RegisterHistoryModel {
+public class RegisterHistoryModel {
     private String day;
     private String timeCheckIn;
     private String timeCheckOut;
 
-    RegisterHistoryModel(String day, String timeIn, String timeOut) {
+    public RegisterHistoryModel(String day, String timeIn, String timeOut) {
         this.day = day;
         timeCheckIn = timeIn;
         timeCheckOut = timeOut;
     }
 
-    String getDay() {
+    public String getDay() {
         return day;
     }
 
-    String getTimeCheckIn() {
+    public String getTimeCheckIn() {
         return timeCheckIn;
     }
 
-    String getTimeCheckOut() {
+    public String getTimeCheckOut() {
         return timeCheckOut;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public void setTimeCheckIn(String timeCheckIn) {
+        this.timeCheckIn = timeCheckIn;
+    }
+
+    public void setTimeCheckOut(String timeCheckOut) {
+        this.timeCheckOut = timeCheckOut;
     }
 }
