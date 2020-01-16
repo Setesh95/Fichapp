@@ -41,7 +41,6 @@ public abstract class UserRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-
         }
     };
 }
