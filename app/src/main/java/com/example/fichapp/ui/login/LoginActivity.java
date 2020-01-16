@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
         LoginActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
 
-        loginViewModel = new LoginViewModel(this);
+        loginViewModel = new LoginViewModel(getApplication());
         binding.setLifecycleOwner(this);
         binding.setViewModel(loginViewModel);
         ImageButton registerButton = findViewById(R.id.register_button);

@@ -21,6 +21,9 @@ public class UserRepository {
         return userModelList;
     }
 
+    public UserModel getUserById(String email) {
+        return userDao.getUserByEmail(email);
+    }
 
     public void insert(final UserModel user) {
         UserRoomDatabase.databaseWriterExecutor.execute(() -> {

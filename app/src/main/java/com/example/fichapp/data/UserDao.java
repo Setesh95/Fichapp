@@ -19,4 +19,7 @@ public interface UserDao {
     @Query("SELECT * FROM user_table")
     List<UserModel> getAllUsers();
 
+    @Query("SELECT * FROM user_table where email = :email")
+    UserModel getUserByEmail(String email);
+
 }
