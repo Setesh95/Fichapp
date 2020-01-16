@@ -19,9 +19,7 @@ public class LoginViewModel extends AndroidViewModel {
 
     LoginViewModel(Application application){
         super(application);
-
-        Thread thread = new Thread(() -> repository = new UserRepository(application));
-        thread.start();
+        repository = new UserRepository(application);
     }
 
      void loginActionButton(String email, String password){

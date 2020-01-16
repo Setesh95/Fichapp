@@ -14,7 +14,6 @@ public class UserRepository {
     public UserRepository(Application application) {
         UserRoomDatabase userRoomDatabase = UserRoomDatabase.getDatabase(application.getApplicationContext());
         userDao = userRoomDatabase.userDao();
-        userModelList = userDao.getAllUsers();
     }
 
     public List<UserModel> getAllUsers() {

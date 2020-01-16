@@ -13,9 +13,7 @@ public class RegisterViewModel extends AndroidViewModel {
 
     RegisterViewModel(Application application) {
         super(application);
-
-        Thread thread = new Thread(() -> repository = new UserRepository(application));
-        thread.start();
+        repository = new UserRepository(application);
     }
 
     void registerNewUser(String company, String email, String password, String passwordRepeat) {
