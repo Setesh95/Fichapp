@@ -4,18 +4,17 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainActivityViewModel extends ViewModel {
-    MutableLiveData<Boolean> sign = new MutableLiveData<>();
-    MutableLiveData<Boolean> history = new MutableLiveData<>();
+    MutableLiveData<NavigatorStatus.status> navigationStatus = new MutableLiveData<>();
     MainActivityViewModel(){
-        sign.setValue(true);
-        history.setValue(false);
+        navigationStatus.setValue(NavigatorStatus.status.CHEK_IN_OUT);
     }
     public void navigateToHistory(){
-        sign.setValue(false);
-        history.setValue(true);
+        navigationStatus.setValue(NavigatorStatus.status.REGISTER_HISTORY);
     }
     public void navigateToSign(){
-        sign.setValue(true);
-        history.setValue(false);
+        navigationStatus.setValue(NavigatorStatus.status.CHEK_IN_OUT);
+    }
+    public void navigateToConfig() {
+        navigationStatus.setValue(NavigatorStatus.status.CONFIG);
     }
 }

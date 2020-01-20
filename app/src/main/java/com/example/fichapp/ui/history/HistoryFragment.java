@@ -30,12 +30,12 @@ public class HistoryFragment extends Fragment {
     ) {
         FragmentHistoryBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_history, container,false);
         binding.setLifecycleOwner(this);
-        viewModel = new HistoryViewModel(getContext());
+        /*viewModel = new HistoryViewModel(getContext());*/
         binding.setViewModel(viewModel);
         return binding.getRoot();
     }
 
-    @Override
+    /*@Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -43,5 +43,5 @@ public class HistoryFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new ItemListAdapter(viewModel.getHistoryList());
         recyclerView.setAdapter(adapter);
-    }
+    }*/
 }
