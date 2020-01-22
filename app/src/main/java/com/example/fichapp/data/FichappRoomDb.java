@@ -8,27 +8,29 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.fichapp.model.RegisterHistoryModel;
 import com.example.fichapp.model.UserModel;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {UserModel.class}, version = 1, exportSchema = false)
-public abstract class UserRoomDatabase extends RoomDatabase {
+@Database(entities = {UserModel.class, RegisterHistoryModel.class}, version = 1, exportSchema = false)
+public abstract class FichappRoomDb extends RoomDatabase {
 
-    public abstract UserDao userDao();
+    public abstract UserDao fichappDao();
+    public abstract RegisterDao registerDao();
 
-    private static volatile UserRoomDatabase INSTANCE;
+    private static volatile FichappRoomDb INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriterExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static UserRoomDatabase getDatabase(final Context context) {
+    static FichappRoomDb getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (UserRoomDatabase.class) {
+            synchronized (FichappRoomDb.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            UserRoomDatabase.class, "user_database")
+                            FichappRoomDb.class, "fichapp_db")
                             .addCallback(roomDatabaseCallback)
                             .build();
                 }

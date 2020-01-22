@@ -4,17 +4,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.fichapp.R;
-
-import java.util.ArrayList;
-
+import com.example.fichapp.model.RegisterHistoryModel;
+import java.util.List;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListViewHolder> {
 
-    private ArrayList<RegisterHistoryModel> registerHistoryModelList;
+    private LiveData<List<RegisterHistoryModel>> registerHistoryModelList;
 
     static class ItemListViewHolder extends RecyclerView.ViewHolder {
 
@@ -28,7 +27,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
         }
     }
 
-    ItemListAdapter(ArrayList<RegisterHistoryModel> registerHistoryModelList) {
+    ItemListAdapter(LiveData<List<RegisterHistoryModel>> registerHistoryModelList) {
         this.registerHistoryModelList = registerHistoryModelList;
     }
 
@@ -42,14 +41,18 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
     @Override
     public void onBindViewHolder(@NonNull ItemListViewHolder holder, int position) {
-
-        holder.firstText.setText(registerHistoryModelList.get(position).getDay());
-        holder.secondText.setText(registerHistoryModelList.get(position).getTimeCheckIn());
-        holder.thirdText.setText(registerHistoryModelList.get(position).getTimeCheckOut());
+        if(registerHistoryModelList.getValue() != null) {
+            holder.firstText.setText(registerHistoryModelList.getValue().get(position).getDay());
+            holder.secondText.setText(registerHistoryModelList.getValue().get(position).getTimeCheckIn());
+            holder.thirdText.setText(registerHistoryModelList.getValue().get(position).getTimeCheckOut());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return registerHistoryModelList.size();
+        if(registerHistoryModelList.getValue() != null) {
+            return registerHistoryModelList.getValue().size();
+        }
+        return 0;
     }
 }

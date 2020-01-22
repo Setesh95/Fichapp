@@ -31,7 +31,7 @@ public class SingInFragment extends Fragment {
     ) {
         FragmentSingInBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sing_in, container, false);
         binding.setLifecycleOwner(this);
-        viewModel = new SingInViewModel(getContext());
+        viewModel = new SingInViewModel(getActivity().getApplication());
         binding.setViewModel(viewModel);
         return binding.getRoot();
     }

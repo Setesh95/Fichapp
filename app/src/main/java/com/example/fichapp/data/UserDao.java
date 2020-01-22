@@ -1,17 +1,26 @@
 package com.example.fichapp.data;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.fichapp.model.RegisterHistoryModel;
 import com.example.fichapp.model.UserModel;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+
+/* TODO Create database online
+* - Database INS Joan d'Àustria
+* Server: 192.168.00.22
+* User: maggy
+* Password: Sendo123.
+ */
 
 @Dao
 public interface UserDao {
 
     @Insert
-    void insert(UserModel user);
+    void insertUser(UserModel user);
 
     @Query("DELETE FROM user_table where id = :id")
     void deleteUserById(int id);

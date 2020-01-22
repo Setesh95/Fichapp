@@ -3,7 +3,7 @@
 //import android.content.Context;
 //
 //import com.example.fichapp.model.UserModel;
-//import com.example.fichapp.ui.history.RegisterHistoryModel;
+//import com.example.fichapp.model.RegisterHistoryModel;
 //import com.example.fichapp.utils.DateUtils;
 //
 //import java.io.FileInputStream;

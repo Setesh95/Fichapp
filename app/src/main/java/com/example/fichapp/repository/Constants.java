@@ -20,4 +20,8 @@ public class Constants {
     public static final String EMAIL_ALREADY_REGISTERED_MESSAGE = "Email already registered";
     public static final String UNKNOWN_ERROR_MESSAGE = "Unknown error";
 
+    //USER ID
+
+    public static int USER_ID;
+    public static boolean USER_IS_WORKING;
 }

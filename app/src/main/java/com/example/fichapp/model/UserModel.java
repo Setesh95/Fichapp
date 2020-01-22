@@ -1,16 +1,15 @@
 package com.example.fichapp.model;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import com.example.fichapp.ui.history.RegisterHistoryModel;
-import java.io.Serializable;
-import java.util.ArrayList;
+
 
 @Entity(tableName = "user_table")
-public class UserModel implements Serializable {
+public class UserModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-//    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
+    //    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
     private String name;
@@ -18,12 +17,21 @@ public class UserModel implements Serializable {
     private String company;
     private int age;
     private String role;
+    private boolean isWorking = false;
 
     public UserModel(String company, String email, String password) {
         this.email = email;
         this.company = company;
         this.password = password;
         this.role = "admin";
+    }
+
+    public boolean isWorking() {
+        return isWorking;
+    }
+
+    public void setWorking(boolean working) {
+        isWorking = working;
     }
 
     public String getCompany() {
