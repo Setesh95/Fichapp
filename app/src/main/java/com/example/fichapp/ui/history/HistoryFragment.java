@@ -38,12 +38,12 @@ public class HistoryFragment extends Fragment {
     }
 
     private void setObserver() {
-        viewModel.registerList.observe(this, (Observer<List>) list -> {
+        Constants.REGISTER_LIST.observe(this, (Observer<List>) list -> {
             if(list.size() != 0){
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
                 RecyclerView recyclerView = Objects.requireNonNull(getView()).findViewById(R.id.history_list);
                 recyclerView.setLayoutManager(layoutManager);
-                RecyclerView.Adapter adapter = new ItemListAdapter(viewModel.registerList);
+                RecyclerView.Adapter adapter = new ItemListAdapter(Constants.REGISTER_LIST);
                 recyclerView.setAdapter(adapter);
             }
         });

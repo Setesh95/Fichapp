@@ -17,6 +17,7 @@ import com.example.fichapp.databinding.LoginActivityBinding;
 import com.example.fichapp.repository.Constants;
 import com.example.fichapp.ui.main.MainActivity;
 import com.example.fichapp.ui.registry.RegisterActivity;
+import com.example.fichapp.ui.splash.LoadingActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void launchApp() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoadingActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

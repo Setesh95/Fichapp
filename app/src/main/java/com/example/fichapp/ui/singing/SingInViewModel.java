@@ -38,8 +38,10 @@ public class SingInViewModel extends ViewModel {
 
     public void signInAction() {
 
+        System.out.println(Constants.REGISTER_LIST.getValue());
+
         if (Constants.USER_IS_WORKING) {
-            repository.updateCheckOut(//TODO);
+//            repository.updateCheckOut(//TODO);
         }
 
 //        if (pausedStatus.getValue() != null) {
