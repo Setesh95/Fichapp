@@ -6,28 +6,26 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "register_history_table")
 public class RegisterHistoryModel {
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     private int userId;
 
     private String day;
-    private String timeCheckIn;
-    private String timeCheckOut;
+    private String action;
 
-    public RegisterHistoryModel(String day, String timeCheckIn, String timeCheckOut, int userId) {
+    public RegisterHistoryModel(String day, String action, int userId) {
         this.day = day;
-        this.timeCheckIn = timeCheckIn;
-        this.timeCheckOut = timeCheckOut;
+        this.action = action;
         this.userId = userId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {
@@ -42,23 +40,15 @@ public class RegisterHistoryModel {
         return day;
     }
 
-    public String getTimeCheckIn() {
-        return timeCheckIn;
+    public String getAction() {
+        return action;
     }
 
-    public String getTimeCheckOut() {
-        return timeCheckOut;
+    public void setAction(String action) {
+        this.action = action;
     }
 
     public void setDay(String day) {
         this.day = day;
-    }
-
-    public void setTimeCheckIn(String timeCheckIn) {
-        this.timeCheckIn = timeCheckIn;
-    }
-
-    public void setTimeCheckOut(String timeCheckOut) {
-        this.timeCheckOut = timeCheckOut;
     }
 }

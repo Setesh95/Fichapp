@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,11 @@ import android.view.ViewGroup;
 
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.FragmentSingInBinding;
+import com.example.fichapp.model.RegisterHistoryModel;
 
-public class SingInFragment extends Fragment {
+public class RegisterFragment extends Fragment {
 
-    private SingInViewModel viewModel;
+    private RegisterViewModel viewModel;
 
     @Override
     public View onCreateView(
@@ -26,13 +28,14 @@ public class SingInFragment extends Fragment {
     ) {
         FragmentSingInBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sing_in, container, false);
         binding.setLifecycleOwner(this);
-        viewModel = new SingInViewModel(getActivity().getApplication());
+        viewModel = new RegisterViewModel(getActivity().getApplication());
         binding.setViewModel(viewModel);
+        viewModel.lastRegister.observe(this, new Observer<RegisterHistoryModel>() {
+            @Override
+            public void onChanged(RegisterHistoryModel registerHistoryModel) {
+                viewModel.setTime();
+            }
+        });
         return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 }

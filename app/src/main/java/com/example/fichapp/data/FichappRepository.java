@@ -13,7 +13,6 @@ public class FichappRepository {
 
     private RegisterDao registerDao;
     private UserDao userDao;
-    private List<UserModel> userModelList;
 
     public FichappRepository(Application application) {
         FichappRoomDb fichappRoomDb = FichappRoomDb.getDatabase(application.getApplicationContext());
@@ -22,7 +21,7 @@ public class FichappRepository {
     }
 
     public List<UserModel> getAllUsers() {
-        return userModelList;
+        return userDao.getAllUsers();
     }
 
     public UserModel getUserById(String email) {
@@ -33,11 +32,15 @@ public class FichappRepository {
         return registerDao.getRegisterListByUserId(userId);
     }
 
-    public void updateCheckOut(final int id, final String timeCheckOut) {
+    public LiveData<RegisterHistoryModel> getLastRegister(int userId){
+        return registerDao.getLastRegister(userId);
+    }
+
+    /*public void updateCheckOut(final int id, final String timeCheckOut) {
         FichappRoomDb.databaseWriterExecutor.execute(() -> {
             registerDao.updateCheckOut(id, timeCheckOut);
         });
-    }
+    }*/
 
     public void insertRegister(final RegisterHistoryModel register) {
         FichappRoomDb.databaseWriterExecutor.execute(() -> {

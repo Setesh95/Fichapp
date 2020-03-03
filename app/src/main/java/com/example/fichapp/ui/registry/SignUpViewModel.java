@@ -1,17 +1,17 @@
 package com.example.fichapp.ui.registry;
 import android.app.Application;
 import com.example.fichapp.data.FichappRepository;
-import com.example.fichapp.repository.Constants;
+import com.example.fichapp.utils.Constants;
 import com.example.fichapp.model.UserModel;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-public class RegisterViewModel extends AndroidViewModel {
+public class SignUpViewModel extends AndroidViewModel {
     MutableLiveData<String> response = new MutableLiveData<>();
     private FichappRepository repository;
     private UserModel user;
 
-    RegisterViewModel(Application application) {
+    SignUpViewModel(Application application) {
         super(application);
         repository = new FichappRepository(application);
     }

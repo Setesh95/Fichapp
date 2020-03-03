@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity
         navigation = binding.getRoot().findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         navigation.setSelectedItemId(R.id.register_control_menu);
+        navigator.navigateMenu(R.id.register_control_menu, false);
         binding.setLifecycleOwner(this);
         binding.setViewModel(viewModel);
     }

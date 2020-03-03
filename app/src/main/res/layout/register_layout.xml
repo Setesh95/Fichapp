@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.fichapp.ui.registry.RegisterViewModel" />
+            type="com.example.fichapp.ui.registry.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

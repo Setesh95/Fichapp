@@ -3,7 +3,7 @@ package com.example.fichapp.ui.login;
 import android.app.Application;
 
 import com.example.fichapp.data.FichappRepository;
-import com.example.fichapp.repository.Constants;
+import com.example.fichapp.utils.Constants;
 //import com.example.fichapp.repository.Repository;
 import com.example.fichapp.model.UserModel;
 

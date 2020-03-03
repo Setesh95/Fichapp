@@ -8,8 +8,6 @@ import androidx.room.PrimaryKey;
 public class UserModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
-
-    //    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
     private String name;
@@ -89,14 +87,6 @@ public class UserModel {
     public void setRole(String role) {
         this.role = role;
     }
-
-//    public ArrayList<RegisterHistoryModel> getCheckInOutList() {
-//        return checkInOutList;
-//    }
-
-//    public void setCheckInOutList(ArrayList<RegisterHistoryModel> checkInOutList) {
-//        this.checkInOutList = checkInOutList;
-//    }
 
     public int getId() {
         return id;

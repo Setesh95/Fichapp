@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListViewHolder> {
 
-    private LiveData<List<RegisterHistoryModel>> registerHistoryModelList;
+    private List<RegisterHistoryModel> registerHistoryModelList;
 
     static class ItemListViewHolder extends RecyclerView.ViewHolder {
 
@@ -27,7 +27,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
         }
     }
 
-    ItemListAdapter(LiveData<List<RegisterHistoryModel>> registerHistoryModelList) {
+    ItemListAdapter(List<RegisterHistoryModel> registerHistoryModelList) {
         this.registerHistoryModelList = registerHistoryModelList;
     }
 
@@ -41,17 +41,16 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
     @Override
     public void onBindViewHolder(@NonNull ItemListViewHolder holder, int position) {
-        if(registerHistoryModelList.getValue() != null) {
-            holder.firstText.setText(registerHistoryModelList.getValue().get(position).getDay());
-            holder.secondText.setText(registerHistoryModelList.getValue().get(position).getTimeCheckIn());
-            holder.thirdText.setText(registerHistoryModelList.getValue().get(position).getTimeCheckOut());
+        if(registerHistoryModelList != null) {
+            holder.firstText.setText(registerHistoryModelList.get(position).getDay());
+            holder.secondText.setText(registerHistoryModelList.get(position).getAction());
         }
     }
 
     @Override
     public int getItemCount() {
-        if(registerHistoryModelList.getValue() != null) {
-            return registerHistoryModelList.getValue().size();
+        if(registerHistoryModelList != null) {
+            return registerHistoryModelList.size();
         }
         return 0;
     }

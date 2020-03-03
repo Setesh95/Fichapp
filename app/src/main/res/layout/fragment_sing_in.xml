@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.fichapp.ui.singing.SingInViewModel" />
+            type="com.example.fichapp.ui.singing.RegisterViewModel" />
         <import type="android.view.View"/>
     </data>
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/dark"
-        tools:context=".ui.singing.SingInFragment">
+        tools:context=".ui.singing.RegisterFragment">
 
         <LinearLayout
             android:id="@+id/register_layout"

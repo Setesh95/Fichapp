@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.fichapp.R;
 import com.example.fichapp.ui.config.ConfigFragment;
 import com.example.fichapp.ui.history.HistoryFragment;
-import com.example.fichapp.ui.singing.SingInFragment;
+import com.example.fichapp.ui.singing.RegisterFragment;
 
 public class Navigator {
     private FragmentManager fragmentManager;
@@ -40,7 +40,7 @@ public class Navigator {
     public void navigateMenu(Integer id, Boolean isBackStack) {
         switch (id) {
             case R.id.register_control_menu:
-                navigateTo(new SingInFragment(), isBackStack);
+                navigateTo(new RegisterFragment(), isBackStack);
                 break;
             case R.id.history_menu:
                 navigateTo(new HistoryFragment(), isBackStack);
