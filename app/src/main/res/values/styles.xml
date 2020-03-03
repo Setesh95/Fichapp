@@ -23,4 +23,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Widget.Custom.BottomBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="android:background">@color/dark</item>
+        <item name="icon_color">@color/bottombar_icon_color</item>
+        <item name="icon_background_color">@color/bottombar_background_color</item>
+    </style>
+
 </resources>
