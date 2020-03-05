@@ -42,9 +42,12 @@ public class ConfigFragment extends Fragment {
 
         webViewViewModel.getWeb().observe(
                 this,
-                html -> webView.loadData(
-                        html, "text/html", "utf-8"
-                )
+                new Observer<String>() {
+                    @Override
+                    public void onChanged(String s) {
+                        webView.loadData(s, "text/html", "utf-8");
+                    }
+                }
         );
 
         return root;

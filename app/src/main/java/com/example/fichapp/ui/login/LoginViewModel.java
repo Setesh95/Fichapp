@@ -11,7 +11,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 public class LoginViewModel extends AndroidViewModel {
-    MutableLiveData<String> response = new MutableLiveData<>();
+    MutableLiveData<String> response = new MutableLiveData<String>();
     private FichappRepository repository;
     private UserModel user;
 
@@ -21,7 +21,13 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
      void loginActionButton(String email, String password){
-        Thread thread = new Thread(() -> user = repository.getUserById(email));
+        final UserModel userModel = new UserModel("",email,password);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                user = repository.getUserById(userModel.getEmail());
+            }
+        });
         thread.start();
 
         try {

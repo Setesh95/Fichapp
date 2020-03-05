@@ -1,10 +1,4 @@
-package com.example.fichapp.repository;
-
-import androidx.lifecycle.LiveData;
-
-import com.example.fichapp.model.RegisterHistoryModel;
-
-import java.util.List;
+package com.example.fichapp.utils;
 
 public class Constants {
     public static final String PASSWORD_NOT_MATCH = "password_not_match";
@@ -28,5 +22,4 @@ public class Constants {
     //USER ID
 
     public static int USER_ID;
-    public static LiveData<List<RegisterHistoryModel>> REGISTER_LIST;
 }

@@ -12,7 +12,7 @@ public class WebViewViewModel extends ViewModel {
     private MutableLiveData<String> mWeb;
 
     public WebViewViewModel() {
-        mWeb = new MutableLiveData<>();
+        mWeb = new MutableLiveData<String>();
     }
 
 

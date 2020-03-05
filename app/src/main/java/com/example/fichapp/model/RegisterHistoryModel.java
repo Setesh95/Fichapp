@@ -10,9 +10,7 @@ public class RegisterHistoryModel {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     private int userId;
-
     private Date day;
     private String action;
 

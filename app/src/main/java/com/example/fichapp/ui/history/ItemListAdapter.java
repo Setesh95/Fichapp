@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.fichapp.R;
 import com.example.fichapp.model.RegisterHistoryModel;
+import com.example.fichapp.utils.DateUtils;
+
+import java.util.Date;
 import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -42,7 +45,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
     @Override
     public void onBindViewHolder(@NonNull ItemListViewHolder holder, int position) {
         if(registerHistoryModelList != null) {
-            holder.firstText.setText(registerHistoryModelList.get(position).getDay());
+            Date date = registerHistoryModelList.get(position).getDay();
+            holder.firstText.setText(DateUtils.completeDateToString(date));
             holder.secondText.setText(registerHistoryModelList.get(position).getAction());
         }
     }

@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,7 +31,12 @@ public class SignUpActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.password_input);
         passwordRepeatInput = findViewById(R.id.password_repeat_input);
         Button registerButton = findViewById(R.id.register_button);
-        registerButton.setOnClickListener(v -> registerAction());
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerAction();
+            }
+        });
         setObserver();
     }
 
@@ -38,20 +44,15 @@ public class SignUpActivity extends AppCompatActivity {
         viewModel.response.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                switch (s) {
-                    case Constants.REGISTERED_SUCCESSFULLY:
-                        showMessage(Constants.REGISTERED_SUCCESSFULLY_MESSAGE);
-                        finish();
-                        break;
-                    case Constants.PASSWORD_NOT_MATCH:
-                        showMessage(Constants.PASSWORD_NOT_MATCH_MESSAGE);
-                        break;
-                    case Constants.PASSWORD_CONTAINS_SPACE:
-                        showMessage(Constants.PASSWORD_CONTAINS_SPACE_MESSAGE);
-                        break;
-                    case Constants.EMAIL_ALREADY_REGISTERED:
-                        showMessage(Constants.EMAIL_ALREADY_REGISTERED_MESSAGE);
-                        break;
+                if (Constants.REGISTERED_SUCCESSFULLY.equals(s)) {
+                    showMessage(Constants.REGISTERED_SUCCESSFULLY_MESSAGE);
+                    finish();
+                } else if (Constants.PASSWORD_NOT_MATCH.equals(s)) {
+                    showMessage(Constants.PASSWORD_NOT_MATCH_MESSAGE);
+                } else if (Constants.PASSWORD_CONTAINS_SPACE.equals(s)) {
+                    showMessage(Constants.PASSWORD_CONTAINS_SPACE_MESSAGE);
+                } else if (Constants.EMAIL_ALREADY_REGISTERED.equals(s)) {
+                    showMessage(Constants.EMAIL_ALREADY_REGISTERED_MESSAGE);
                 }
             }
         });

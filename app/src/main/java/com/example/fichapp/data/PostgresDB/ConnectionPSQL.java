@@ -28,7 +28,9 @@ public class ConnectionPSQL {
                 connection = conn;
                 /*Statement st = conn.createStatement();
                 st.executeQuery("INSERT INTO user_table VALUES(1, 'Raul');");*/
-            } catch (ClassNotFoundException | SQLException e) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e){
                 e.printStackTrace();
             }
         }

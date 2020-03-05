@@ -43,14 +43,20 @@ public class FichappRepository {
     }*/
 
     public void insertRegister(final RegisterHistoryModel register) {
-        FichappRoomDb.databaseWriterExecutor.execute(() -> {
-            registerDao.insertRegister(register);
+        FichappRoomDb.databaseWriterExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                registerDao.insertRegister(register);
+            }
         });
     }
 
     public void insertUser(final UserModel user) {
-        FichappRoomDb.databaseWriterExecutor.execute(() -> {
-            userDao.insertUser(user);
+        FichappRoomDb.databaseWriterExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userDao.insertUser(user);
+            }
         });
     }
 }

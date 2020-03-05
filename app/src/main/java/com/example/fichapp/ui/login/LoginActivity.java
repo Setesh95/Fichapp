@@ -57,16 +57,12 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel.response.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                switch (s) {
-                    case Constants.LOGIN_SUCCESSFULLY:
-                        launchApp();
-                        break;
-                    case Constants.WRONG_PASSWORD:
-                        showMessage(Constants.WRONG_PASSWORD_MESSAGE);
-                        break;
-                    case Constants.USER_NOT_FOUND:
-                        showMessage(Constants.USER_NOT_FOUND_MESSAGE);
-                        break;
+                if (Constants.LOGIN_SUCCESSFULLY.equals(s)) {
+                    launchApp();
+                } else if (Constants.WRONG_PASSWORD.equals(s)) {
+                    showMessage(Constants.WRONG_PASSWORD_MESSAGE);
+                } else if (Constants.USER_NOT_FOUND.equals(s)) {
+                    showMessage(Constants.USER_NOT_FOUND_MESSAGE);
                 }
             }
         });

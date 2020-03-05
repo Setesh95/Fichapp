@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 public class SignUpViewModel extends AndroidViewModel {
-    MutableLiveData<String> response = new MutableLiveData<>();
+    MutableLiveData<String> response = new MutableLiveData<String>();
     private FichappRepository repository;
     private UserModel user;
 
@@ -17,9 +17,14 @@ public class SignUpViewModel extends AndroidViewModel {
     }
 
     void registerNewUser(String company, String email, String password, String passwordRepeat) {
-        UserModel newUser = new UserModel(company, email, password);
+        final UserModel newUser = new UserModel(company, email, password);
 
-        Thread thread = new Thread(() -> user = repository.getUserById(email));
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                user = repository.getUserById(newUser.getEmail());
+            }
+        });
         thread.start();
 
         try {
