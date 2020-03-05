@@ -1,10 +1,13 @@
 package com.example.fichapp.model;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-
-@Entity(tableName = "user_table")
+@Entity(
+        tableName = "user_table",
+        indices = {@Index(value = "email", unique = true)}
+)
 public class UserModel {
     @PrimaryKey(autoGenerate = true)
     private int id;

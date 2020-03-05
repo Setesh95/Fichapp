@@ -3,6 +3,8 @@ package com.example.fichapp.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity(tableName = "register_history_table")
 public class RegisterHistoryModel {
 
@@ -11,10 +13,10 @@ public class RegisterHistoryModel {
 
     private int userId;
 
-    private String day;
+    private Date day;
     private String action;
 
-    public RegisterHistoryModel(String day, String action, int userId) {
+    public RegisterHistoryModel(Date day, String action, int userId) {
         this.day = day;
         this.action = action;
         this.userId = userId;
@@ -36,7 +38,7 @@ public class RegisterHistoryModel {
         this.userId = userId;
     }
 
-    public String getDay() {
+    public Date getDay() {
         return day;
     }
 
@@ -48,7 +50,7 @@ public class RegisterHistoryModel {
         this.action = action;
     }
 
-    public void setDay(String day) {
+    public void setDay(Date day) {
         this.day = day;
     }
 }

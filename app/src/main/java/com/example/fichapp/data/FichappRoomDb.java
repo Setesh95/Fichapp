@@ -6,18 +6,28 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.fichapp.model.Converters;
 import com.example.fichapp.model.RegisterHistoryModel;
 import com.example.fichapp.model.UserModel;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {UserModel.class, RegisterHistoryModel.class}, version = 1, exportSchema = false)
+@Database(
+        entities = {
+                UserModel.class,
+                RegisterHistoryModel.class
+        },
+        version = 1,
+        exportSchema = false
+)
+@TypeConverters({Converters.class})
 public abstract class FichappRoomDb extends RoomDatabase {
-
     public abstract UserDao fichappDao();
+
     public abstract RegisterDao registerDao();
 
     private static volatile FichappRoomDb INSTANCE;
