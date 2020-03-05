@@ -110,6 +110,7 @@
                     android:backgroundTint="@color/greenLight"
                     android:layout_marginStart="20dp"
                     android:elevation="2dp"
+                    android:saveEnabled="@{viewModel.buttonDisabled}"
                     android:onClick="@{() -> viewModel.signInAction()}"
                     android:src="@drawable/ic_play"
                     app:borderWidth="0dp" />

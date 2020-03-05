@@ -35,11 +35,11 @@ public class DateUtils {
         return date;
     }
 
-    public static String differenceBetweenTwoDates(Date firstDate, Date secondDate){
+    /*public static String differenceBetweenTwoDates(Date firstDate, Date secondDate){
         TimeUnit timeUnit = TimeUnit.HOURS;
         long diffInMillies = firstDate.getTime() - secondDate.getTime();
         timeUnit.convert(diffInMillies, TimeUnit.MILLISECONDS);
-    }
+    }*/
 
     private static final String completeDate = "dd/MM/yyyy HH:mm:ss";
     private static final String dateFormat = "dd/MM/yyyy";

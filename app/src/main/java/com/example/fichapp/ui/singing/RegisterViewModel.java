@@ -1,7 +1,6 @@
 package com.example.fichapp.ui.singing;
 
 import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -11,7 +10,8 @@ import com.example.fichapp.utils.Constants;
 import com.example.fichapp.utils.DateUtils;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
+import static com.example.fichapp.model.RegisterStateModel.SIGN_IN;
+import static com.example.fichapp.model.RegisterStateModel.SING_OUT;
 
 //TODO refactor this shit code 
 
@@ -21,45 +21,52 @@ public class RegisterViewModel extends ViewModel {
     public MutableLiveData<String> currentTimeWorked = new MutableLiveData<String>();
     public MutableLiveData<Boolean> buttonDisabled = new MutableLiveData<Boolean>();
     public LiveData<RegisterHistoryModel> lastRegister;
+    public MutableLiveData<String> statusModel = new MutableLiveData<String>();
 
     RegisterViewModel(Application application) {
         repository = new FichappRepository(application);
+        disableButton();
         lastRegister = repository.getLastRegister(Constants.USER_ID);
     }
 
-    public void setTime(){
-        Date date = Objects.requireNonNull(lastRegister.getValue()).getDay();
-        lastAction.setValue(DateUtils.toTimeString(date));
+    void setTime(){
+        if(lastRegister.getValue() != null) {
+            enableButton();
+            Date date = lastRegister.getValue().getDay();
+            lastAction.setValue(DateUtils.toTimeString(date));
+            statusModel.setValue(lastRegister.getValue().getAction());
+        }
+    }
+
+    void enableButton(){
+        buttonDisabled.setValue(true);
+    }
+
+    void disableButton(){
+        buttonDisabled.setValue(false);
     }
 
     public void signInAction() {
-        buttonDisabled.setValue(false);
         Date date = Calendar.getInstance().getTime();
-        System.out.println(date.toString());
         if(lastRegister.getValue() != null) {
-            System.out.println(lastRegister.getValue().getAction());
+            if(statusModel.getValue().equals(SIGN_IN.toString())){
+                statusModel.setValue(SING_OUT.toString());
+            } else {
+                statusModel.setValue(SIGN_IN.toString());
+            }
+            RegisterHistoryModel register = new RegisterHistoryModel(
+                    date,
+                    statusModel.getValue(),
+                    Constants.USER_ID
+            );
+            repository.insertRegister(register);
         } else {
             RegisterHistoryModel register = new RegisterHistoryModel(
                     date,
-                    "SIGN_IN",
+                    SIGN_IN.toString(),
                     Constants.USER_ID
             );
             repository.insertRegister(register);
         }
-        buttonDisabled.setValue(true);
-
-        /*String action = "";
-        Calendar calendar = Calendar.getInstance();
-        if (lastRegister == null || lastRegister.setAction() != null) {
-            RegisterHistoryModel register = new RegisterHistoryModel(
-                    DateUtils.toDateString(calendar.getTime()),
-                    action,
-                    Constants.USER_ID
-            );
-            repository.insertRegister(register);
-            Constants.REGISTER_LIST.getValue().add(register);
-        } else {
-            repository.updateCheckOut(lastRegister.getId(), DateUtils.toTimeString(calendar.getTime()));
-        }*/
     }
 }

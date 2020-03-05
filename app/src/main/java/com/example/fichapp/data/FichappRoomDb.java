@@ -27,9 +27,7 @@ import java.util.concurrent.Executors;
 @TypeConverters({Converters.class})
 public abstract class FichappRoomDb extends RoomDatabase {
     public abstract UserDao fichappDao();
-
     public abstract RegisterDao registerDao();
-
     private static volatile FichappRoomDb INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriterExecutor =

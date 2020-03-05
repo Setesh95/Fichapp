@@ -38,6 +38,7 @@ public class HistoryFragment extends Fragment {
                 recyclerView.setLayoutManager(layoutManager);
                 RecyclerView.Adapter adapter = new ItemListAdapter(registerHistoryModels);
                 recyclerView.setAdapter(adapter);
+                System.out.println(registerHistoryModels.size());
             }
         });
         return binding.getRoot();

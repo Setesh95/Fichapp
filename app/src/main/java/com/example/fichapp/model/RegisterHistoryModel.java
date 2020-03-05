@@ -1,11 +1,12 @@
 package com.example.fichapp.model;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName = "register_history_table")
+@Entity(tableName = "register_history_table", indices = @Index(value = "day", unique = true))
 public class RegisterHistoryModel {
 
     @PrimaryKey(autoGenerate = true)

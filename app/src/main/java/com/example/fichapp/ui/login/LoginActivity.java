@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private EditText emailInput, passwordInput;
-    private ConnectionPSQL connectionPSQL = new ConnectionPSQL();
+    //private ConnectionPSQL connectionPSQL = new ConnectionPSQL();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
