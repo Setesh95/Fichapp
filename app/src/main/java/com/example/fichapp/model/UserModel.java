@@ -15,21 +15,11 @@ public class UserModel {
     private String company;
     private int age;
     private String role;
-    private boolean isWorking = false;
 
     public UserModel(String company, String email, String password) {
         this.email = email;
         this.company = company;
         this.password = password;
-        this.role = "admin";
-    }
-
-    public boolean isWorking() {
-        return isWorking;
-    }
-
-    public void setWorking(boolean working) {
-        isWorking = working;
     }
 
     public String getCompany() {

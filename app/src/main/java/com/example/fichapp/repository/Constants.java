@@ -1,7 +1,12 @@
-package com.example.fichapp.utils;
+package com.example.fichapp.repository;
+
+import androidx.lifecycle.LiveData;
+
+import com.example.fichapp.model.RegisterHistoryModel;
+
+import java.util.List;
 
 public class Constants {
-    static final String FILE_NAME = "users";
     public static final String PASSWORD_NOT_MATCH = "password_not_match";
     public static final String PASSWORD_CONTAINS_SPACE = "password_contains_space";
     public static final String USER_NOT_FOUND = "user_not_found";
@@ -23,5 +28,5 @@ public class Constants {
     //USER ID
 
     public static int USER_ID;
-    public static boolean USER_IS_WORKING;
+    public static LiveData<List<RegisterHistoryModel>> REGISTER_LIST;
 }

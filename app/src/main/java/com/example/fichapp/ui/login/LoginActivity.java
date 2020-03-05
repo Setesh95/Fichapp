@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.fichapp.R;
+import com.example.fichapp.data.PostgresDB.ConnectionPSQL;
 import com.example.fichapp.databinding.LoginActivityBinding;
 import com.example.fichapp.utils.Constants;
 import com.example.fichapp.ui.registry.SignUpActivity;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private EditText emailInput, passwordInput;
+    private ConnectionPSQL connectionPSQL = new ConnectionPSQL();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

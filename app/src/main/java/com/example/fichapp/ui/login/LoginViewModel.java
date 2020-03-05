@@ -33,7 +33,6 @@ public class LoginViewModel extends AndroidViewModel {
             if (password.equals(user.getPassword())) {
                 response.setValue(Constants.LOGIN_SUCCESSFULLY);
                 Constants.USER_ID = user.getId();
-                Constants.USER_IS_WORKING = user.isWorking();
             } else {
                 response.setValue(Constants.WRONG_PASSWORD);
             }
