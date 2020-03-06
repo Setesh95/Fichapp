@@ -1,4 +1,4 @@
-package com.example.fichapp.model;
+package com.example.fichapp.data.roomDB.models;
 
 import androidx.room.Entity;
 import androidx.room.Index;
