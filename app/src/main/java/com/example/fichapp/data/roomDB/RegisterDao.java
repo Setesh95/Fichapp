@@ -1,11 +1,11 @@
-package com.example.fichapp.data;
+package com.example.fichapp.data.roomDB;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.fichapp.model.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
 
 import java.util.List;
 

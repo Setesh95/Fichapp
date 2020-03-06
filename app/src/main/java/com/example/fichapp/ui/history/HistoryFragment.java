@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.FragmentHistoryBinding;
-import com.example.fichapp.model.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
 import java.util.List;
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.example.fichapp.data;
+package com.example.fichapp.data.roomDB;
 
 import android.content.Context;
 
@@ -9,9 +9,9 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.fichapp.model.Converters;
-import com.example.fichapp.model.RegisterHistoryModel;
-import com.example.fichapp.model.UserModel;
+import com.example.fichapp.data.roomDB.models.Converters;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.UserModel;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,10 +30,10 @@ public abstract class FichappRoomDb extends RoomDatabase {
     public abstract RegisterDao registerDao();
     private static volatile FichappRoomDb INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriterExecutor =
+    public static final ExecutorService databaseWriterExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static FichappRoomDb getDatabase(final Context context) {
+    public static FichappRoomDb getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (FichappRoomDb.class) {
                 if (INSTANCE == null) {

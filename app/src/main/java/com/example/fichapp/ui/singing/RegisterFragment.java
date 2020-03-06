@@ -1,20 +1,16 @@
 package com.example.fichapp.ui.singing;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.FragmentSingInBinding;
-import com.example.fichapp.model.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
 import com.example.fichapp.model.RegisterStateModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

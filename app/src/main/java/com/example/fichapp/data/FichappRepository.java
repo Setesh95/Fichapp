@@ -4,8 +4,11 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.fichapp.model.RegisterHistoryModel;
-import com.example.fichapp.model.UserModel;
+import com.example.fichapp.data.roomDB.FichappRoomDb;
+import com.example.fichapp.data.roomDB.RegisterDao;
+import com.example.fichapp.data.roomDB.UserDao;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.UserModel;
 
 import java.util.List;
 

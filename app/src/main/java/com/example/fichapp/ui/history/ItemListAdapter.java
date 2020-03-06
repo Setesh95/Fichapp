@@ -5,13 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.fichapp.R;
-import com.example.fichapp.model.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
 import com.example.fichapp.utils.DateUtils;
 
 import java.util.Date;
 import java.util.List;
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListViewHolder> {

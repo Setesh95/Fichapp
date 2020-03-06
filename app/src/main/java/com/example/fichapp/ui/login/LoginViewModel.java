@@ -5,7 +5,7 @@ import android.app.Application;
 import com.example.fichapp.data.FichappRepository;
 import com.example.fichapp.utils.Constants;
 //import com.example.fichapp.repository.Repository;
-import com.example.fichapp.model.UserModel;
+import com.example.fichapp.data.roomDB.models.UserModel;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;

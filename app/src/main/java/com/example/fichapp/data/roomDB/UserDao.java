@@ -1,9 +1,9 @@
-package com.example.fichapp.data;
+package com.example.fichapp.data.roomDB;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import com.example.fichapp.model.UserModel;
+import com.example.fichapp.data.roomDB.models.UserModel;
 import java.util.List;
 
 /* TODO Create database online

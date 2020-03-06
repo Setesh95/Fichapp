@@ -1,4 +1,4 @@
-package com.example.fichapp.data.PostgresDB;
+package com.example.fichapp.data.postgresDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

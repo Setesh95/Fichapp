@@ -13,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.fichapp.R;
-import com.example.fichapp.data.PostgresDB.ConnectionPSQL;
 import com.example.fichapp.databinding.LoginActivityBinding;
 import com.example.fichapp.utils.Constants;
 import com.example.fichapp.ui.registry.SignUpActivity;

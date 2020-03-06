@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.example.fichapp.data.FichappRepository;
-import com.example.fichapp.model.RegisterHistoryModel;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
 import com.example.fichapp.utils.Constants;
 import com.example.fichapp.utils.DateUtils;
 import java.util.Calendar;
