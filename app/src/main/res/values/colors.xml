@@ -12,6 +12,7 @@
     <color name="greenLight">#86c232</color>
     <color name="greenDark">#61892f</color>
     <color name="selectedNavButton">#19ffffff</color>
+    <color name="receivedMessage">#754668</color>
 
     <!--Gradient Color -->
     <color name="starColor">#1a236c</color>

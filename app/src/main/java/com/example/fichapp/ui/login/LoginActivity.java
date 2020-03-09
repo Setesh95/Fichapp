@@ -14,10 +14,17 @@ import android.widget.Toast;
 
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.LoginActivityBinding;
+import com.example.fichapp.model.UserModel;
 import com.example.fichapp.repository.Constants;
 import com.example.fichapp.ui.main.MainActivity;
 import com.example.fichapp.ui.registry.RegisterActivity;
 import com.example.fichapp.ui.splash.LoadingActivity;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,7 +34,32 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new Thread() {
+            @Override
+            public void run() {
+                Connection connection = null;
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    connection = DriverManager.getConnection(
+                            "jdbc:postgresql://192.168.0.22:5432/fichapp", "maggy", "Sendo123.");
+                    Statement statement = connection.createStatement();
+                    statement.execute("INSERT INTO user_table VALUES(" + new UserModel("a", "a", "a") + ");");
 
+
+                } catch (SQLException | ClassNotFoundException e) {
+                    System.out.println("FAIL_____________________");
+                    System.out.println(e.toString());
+                } finally {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        System.out.println(e.toString());
+                    } catch (NullPointerException e) {
+                        System.out.println("fail");
+                    }
+                }
+            }
+        }.start();
         LoginActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
 
         loginViewModel = new LoginViewModel(getApplication());
