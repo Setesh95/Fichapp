@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 public class MainActivityViewModel extends ViewModel {
     MutableLiveData<Boolean> sign = new MutableLiveData<>();
     MutableLiveData<Boolean> history = new MutableLiveData<>();
-    MainActivityViewModel(){
+    public MainActivityViewModel(){
         sign.setValue(true);
         history.setValue(false);
     }
