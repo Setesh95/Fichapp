@@ -1,15 +1,16 @@
-package com.example.fichapp.model;
+package com.example.fichapp.data.roomDB.models;
 
-import com.example.fichapp.ui.history.RegisterHistoryModel;
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-
-public class UserModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Entity(
+        tableName = "user_table",
+        indices = {@Index(value = "email", unique = true)}
+)
+public class UserModel {
+    @PrimaryKey(autoGenerate = true)
     private int id;
-    private ArrayList<RegisterHistoryModel> checkInOutList = new ArrayList<>();
     private String email;
     private String password;
     private String name;
@@ -18,16 +19,10 @@ public class UserModel implements Serializable {
     private int age;
     private String role;
 
-    public UserModel(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
     public UserModel(String company, String email, String password) {
         this.email = email;
         this.company = company;
         this.password = password;
-        this.role = "admin";
     }
 
     public String getCompany() {
@@ -84,14 +79,6 @@ public class UserModel implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public ArrayList<RegisterHistoryModel> getCheckInOutList() {
-        return checkInOutList;
-    }
-
-    public void setCheckInOutList(ArrayList<RegisterHistoryModel> checkInOutList) {
-        this.checkInOutList = checkInOutList;
     }
 
     public int getId() {

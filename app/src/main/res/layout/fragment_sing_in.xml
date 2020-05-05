@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.fichapp.ui.singing.SingInViewModel" />
+            type="com.example.fichapp.ui.singing.RegisterViewModel" />
         <import type="android.view.View"/>
     </data>
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/dark"
-        tools:context=".ui.singing.SingInFragment">
+        tools:context=".ui.singing.RegisterFragment">
 
         <LinearLayout
             android:id="@+id/register_layout"
@@ -110,6 +110,7 @@
                     android:backgroundTint="@color/greenLight"
                     android:layout_marginStart="20dp"
                     android:elevation="2dp"
+                    android:saveEnabled="@{viewModel.buttonDisabled}"
                     android:onClick="@{() -> viewModel.signInAction()}"
                     android:src="@drawable/ic_play"
                     app:borderWidth="0dp" />

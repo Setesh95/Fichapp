@@ -14,14 +14,15 @@ import android.widget.Toast;
 
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.LoginActivityBinding;
-import com.example.fichapp.repository.Constants;
-import com.example.fichapp.ui.main.MainActivity;
-import com.example.fichapp.ui.registry.RegisterActivity;
+import com.example.fichapp.utils.Constants;
+import com.example.fichapp.ui.registry.SignUpActivity;
+import com.example.fichapp.ui.splash.LoadingActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private EditText emailInput, passwordInput;
+    //private ConnectionPSQL connectionPSQL = new ConnectionPSQL();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
         LoginActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
 
-        loginViewModel = new LoginViewModel(this);
+        loginViewModel = new LoginViewModel(getApplication());
         binding.setLifecycleOwner(this);
         binding.setViewModel(loginViewModel);
-
         ImageButton registerButton = findViewById(R.id.register_button);
         Button loginButton = findViewById(R.id.login_button);
         emailInput = findViewById(R.id.email_input);
@@ -56,23 +56,19 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel.response.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                switch (s) {
-                    case Constants.LOGIN_SUCCESSFULLY:
-                        launchApp();
-                        break;
-                    case Constants.WRONG_PASSWORD:
-                        showMessage(Constants.WRONG_PASSWORD_MESSAGE);
-                        break;
-                    case Constants.USER_NOT_FOUND:
-                        showMessage(Constants.USER_NOT_FOUND_MESSAGE);
-                        break;
+                if (Constants.LOGIN_SUCCESSFULLY.equals(s)) {
+                    launchApp();
+                } else if (Constants.WRONG_PASSWORD.equals(s)) {
+                    showMessage(Constants.WRONG_PASSWORD_MESSAGE);
+                } else if (Constants.USER_NOT_FOUND.equals(s)) {
+                    showMessage(Constants.USER_NOT_FOUND_MESSAGE);
                 }
             }
         });
     }
 
     private void startRegister() {
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 
@@ -83,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void launchApp() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoadingActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

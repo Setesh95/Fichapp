@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomMenuIcons">
+        <attr name="icon_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="BottomMenuBackgroundIcons">
+        <attr name="icon_background_color" format="color"/>
+    </declare-styleable>
+</resources>

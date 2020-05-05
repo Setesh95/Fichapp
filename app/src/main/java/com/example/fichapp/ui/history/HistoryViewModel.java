@@ -1,39 +1,20 @@
 package com.example.fichapp.ui.history;
 
-import android.content.Context;
-
-import androidx.lifecycle.MutableLiveData;
+import android.app.Application;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
+import com.example.fichapp.data.FichappRepository;
+import com.example.fichapp.data.roomDB.models.RegisterHistoryModel;
+import com.example.fichapp.utils.Constants;
 
-import com.example.fichapp.repository.Repository;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class HistoryViewModel extends ViewModel {
-    private Repository repository;
-    private ArrayList<RegisterHistoryModel> historyList;
-    public MutableLiveData<Boolean> empryList = new MutableLiveData<>();
+    public FichappRepository repository;
+    public LiveData<List<RegisterHistoryModel>> registerList;
 
-    HistoryViewModel(Context context) {
-        empryList.setValue(true);
-        repository = Repository.get();
-        repository.setContext(context);
-        historyList = repository.getDateList();
-    }
-
-    ArrayList<RegisterHistoryModel> getHistoryList() {
-
-        //TODO review
-
-        ArrayList<RegisterHistoryModel> historyListMinusLast = new ArrayList<>();
-        if (!historyList.isEmpty()) {
-            for (RegisterHistoryModel history : historyList) {
-                if (history.getTimeCheckOut() != null) {
-                    historyListMinusLast.add(history);
-                }
-            }
-        }
-
-        return historyListMinusLast;
+    HistoryViewModel(Application application) {
+        repository = new FichappRepository(application);
+        registerList = repository.getRegistersByUserId(Constants.USER_ID);
     }
 }

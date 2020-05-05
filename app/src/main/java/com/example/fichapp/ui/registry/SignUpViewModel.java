@@ -1,31 +1,28 @@
-package com.example.fichapp.ui.login;
-
+package com.example.fichapp.ui.registry;
 import android.app.Application;
-
 import com.example.fichapp.data.FichappRepository;
 import com.example.fichapp.utils.Constants;
-//import com.example.fichapp.repository.Repository;
 import com.example.fichapp.data.roomDB.models.UserModel;
-
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-public class LoginViewModel extends AndroidViewModel {
+public class SignUpViewModel extends AndroidViewModel {
     MutableLiveData<String> response = new MutableLiveData<String>();
     private FichappRepository repository;
     private UserModel user;
 
-    LoginViewModel(Application application){
+    SignUpViewModel(Application application) {
         super(application);
         repository = new FichappRepository(application);
     }
 
-     void loginActionButton(String email, String password){
-        final UserModel userModel = new UserModel("",email,password);
+    void registerNewUser(String company, String email, String password, String passwordRepeat) {
+        final UserModel newUser = new UserModel(company, email, password);
+
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                user = repository.getUserById(userModel.getEmail());
+                user = repository.getUserById(newUser.getEmail());
             }
         });
         thread.start();
@@ -35,15 +32,20 @@ public class LoginViewModel extends AndroidViewModel {
         } catch (Exception e){
             response.setValue(Constants.UNKNOWN_ERROR);
         }
+
         if (user != null) {
-            if (password.equals(user.getPassword())) {
-                response.setValue(Constants.LOGIN_SUCCESSFULLY);
-                Constants.USER_ID = user.getId();
-            } else {
-                response.setValue(Constants.WRONG_PASSWORD);
-            }
+            response.setValue(Constants.EMAIL_ALREADY_REGISTERED);
         } else {
-            response.setValue(Constants.USER_NOT_FOUND);
+            if (!password.contains(" ")) {
+                if (password.equals(passwordRepeat)) {
+                    repository.insertUser(newUser);
+                    response.setValue(Constants.REGISTERED_SUCCESSFULLY);
+                } else {
+                    response.setValue(Constants.PASSWORD_NOT_MATCH);
+                }
+            } else {
+                response.setValue(Constants.PASSWORD_CONTAINS_SPACE);
+            }
         }
     }
 }

@@ -12,20 +12,20 @@ import android.widget.Toast;
 
 import com.example.fichapp.R;
 import com.example.fichapp.databinding.RegisterLayoutBinding;
-import com.example.fichapp.repository.Constants;
+import com.example.fichapp.utils.Constants;
 
-public class RegisterActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
-    private RegisterViewModel registerViewModel;
+    private SignUpViewModel viewModel;
     EditText companyInput, emailInput, passwordInput, passwordRepeatInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final RegisterLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.register_layout);
-        registerViewModel = new RegisterViewModel(this);
+        viewModel = new SignUpViewModel(getApplication());
         binding.setLifecycleOwner(this);
-        binding.setViewModel(registerViewModel);
+        binding.setViewModel(viewModel);
         companyInput = findViewById(R.id.company_input);
         emailInput = findViewById(R.id.email_input);
         passwordInput = findViewById(R.id.password_input);
@@ -41,23 +41,18 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void setObserver() {
-        registerViewModel.response.observe(this, new Observer<String>() {
+        viewModel.response.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                switch (s) {
-                    case Constants.REGISTERED_SUCCESSFULLY:
-                        showMessage(Constants.REGISTERED_SUCCESSFULLY_MESSAGE);
-                        finish();
-                        break;
-                    case Constants.PASSWORD_NOT_MATCH:
-                        showMessage(Constants.PASSWORD_NOT_MATCH_MESSAGE);
-                        break;
-                    case Constants.PASSWORD_CONTAINS_SPACE:
-                        showMessage(Constants.PASSWORD_CONTAINS_SPACE_MESSAGE);
-                        break;
-                    case Constants.EMAIL_ALREADY_REGISTERED:
-                        showMessage(Constants.EMAIL_ALREADY_REGISTERED_MESSAGE);
-                        break;
+                if (Constants.REGISTERED_SUCCESSFULLY.equals(s)) {
+                    showMessage(Constants.REGISTERED_SUCCESSFULLY_MESSAGE);
+                    finish();
+                } else if (Constants.PASSWORD_NOT_MATCH.equals(s)) {
+                    showMessage(Constants.PASSWORD_NOT_MATCH_MESSAGE);
+                } else if (Constants.PASSWORD_CONTAINS_SPACE.equals(s)) {
+                    showMessage(Constants.PASSWORD_CONTAINS_SPACE_MESSAGE);
+                } else if (Constants.EMAIL_ALREADY_REGISTERED.equals(s)) {
+                    showMessage(Constants.EMAIL_ALREADY_REGISTERED_MESSAGE);
                 }
             }
         });
@@ -68,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
         String passwordRepeat = passwordRepeatInput.getText().toString();
-        registerViewModel.registerNewUser(company, email, password, passwordRepeat);
+        viewModel.registerNewUser(company, email, password, passwordRepeat);
     }
 
     private void showMessage(String message) {

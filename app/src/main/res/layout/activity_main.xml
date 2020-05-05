@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.fichapp.ui.main.MainActivityViewModel" />
@@ -12,8 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ui.main.MainActivity">
 
         <FrameLayout
             android:id="@+id/fragment"
@@ -22,47 +23,17 @@
             app:layout_constraintBottom_toTopOf="@+id/navigation"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/navigation"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/dark"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/fragment"
+            android:layout_height="wrap_content"
+            app:labelVisibilityMode="unlabeled"
+            style="@style/Widget.Custom.BottomBar"
+            app:itemIconTint="@color/bottombar_icon_color"
+            app:itemBackground="@drawable/background_color"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageButton
-                android:id="@+id/sing_in_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:onClick="@{() -> viewModel.navigateToSign()}"
-                android:layout_weight="0.3"
-                android:background="@color/dark"
-                android:src="@drawable/ic_hora" />
-
-            <ImageButton
-                android:id="@+id/user_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:onClick="@{() -> viewModel.navigateToHistory()}"
-                android:layout_weight="0.3"
-                android:background="@color/dark"
-                android:src="@drawable/ic_avatar" />
-
-            <ImageButton
-                android:id="@+id/config_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:visibility="gone"
-                android:background="@color/dark"
-                android:src="@drawable/ic_configuraciones" />
-        </LinearLayout>
+            app:menu="@menu/bottom_navigation_menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

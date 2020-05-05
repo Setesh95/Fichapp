@@ -5,13 +5,28 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/greenDark</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="HintThemme" parent="TextAppearance.Design.Hint">
         <item name="android:textColor">@color/primaryColor</item>
         <item name="android:textSize">@dimen/register_hint_text</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.Custom.BottomBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="android:background">@color/dark</item>
+        <item name="icon_color">@color/bottombar_icon_color</item>
+        <item name="icon_background_color">@color/bottombar_background_color</item>
     </style>
 
 </resources>
